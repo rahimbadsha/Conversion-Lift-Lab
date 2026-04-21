@@ -150,7 +150,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.5 }}
         >
           <p className={`text-center text-xs uppercase tracking-widest font-medium mb-4 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
-            {t('Expert in 12+ platforms', '১২+ প্ল্যাটফর্মে বিশেষজ্ঞ')}
+            {t('Works with all major page builders & coding platforms', 'সকল প্রধান পেজ বিল্ডার ও কোডিং প্ল্যাটফর্মে কাজ করি')}
           </p>
           <div className="marquee-wrap">
             <div className="marquee-track">
