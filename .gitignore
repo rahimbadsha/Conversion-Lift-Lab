@@ -1,0 +1,27 @@
+# Claude Code local settings (may contain API tokens)
+.claude/
+
+# Wrangler cache (contains account ID)
+.wrangler/
+
+# Dependencies
+app/node_modules/
+
+# Build output
+app/dist/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Env / secrets
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+npm-debug.log*
+
+# Vite cache
+app/.vite/
