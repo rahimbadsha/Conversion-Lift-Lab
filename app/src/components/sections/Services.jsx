@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Layout, TrendingUp, Filter, BarChart2, Zap, Globe } from 'lucide-react';
+import { Layout, TrendingUp, Filter, BarChart2, Zap, Globe, Bot } from 'lucide-react';
 import { useLang } from '../../context/LangContext';
 import { useTheme } from '../../context/ThemeContext';
 
@@ -39,6 +39,12 @@ const services = [
     en: { title: 'Advertorial & VSL Pages', desc: 'Native-style advertorials and video sales letters that warm cold traffic and drive affiliate conversions.' },
     bn: { title: 'অ্যাডভার্টোরিয়াল ও VSL পেজ', desc: 'নেটিভ-স্টাইল অ্যাডভার্টোরিয়াল এবং ভিডিও সেলস লেটার যা কোল্ড ট্র্যাফিক গরম করে।' },
     color: 'from-red-500 to-purple-500',
+  },
+  {
+    icon: Bot,
+    en: { title: 'AI-Powered Lead & CRM Automation', desc: '10x faster lead qualification, AI follow-up sequences, and CRM automation — so no lead slips through the cracks.' },
+    bn: { title: 'AI-চালিত লিড ও CRM অটোমেশন', desc: '১০ গুণ দ্রুত লিড কোয়ালিফিকেশন, AI ফলো-আপ সিকোয়েন্স এবং CRM অটোমেশন — কোনো লিড হারাবে না।' },
+    color: 'from-violet-500 to-cyan-500',
   },
 ];
 

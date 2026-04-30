@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { Award, Users, TrendingUp, Clock } from 'lucide-react';
 import { useLang } from '../context/LangContext';
@@ -20,6 +21,11 @@ export default function About() {
 
   return (
     <main className={`min-h-screen pt-24 pb-0 ${isDark ? 'bg-[#050816]' : 'bg-slate-50'}`}>
+      <Helmet>
+        <title>About Rahim Badsha | CRO Expert & Landing Page Specialist — ConversionLiftLab</title>
+        <meta name="description" content="10+ years, 950+ landing pages, $200K+ earned on Upwork with 100% Job Success Score. Learn how Rahim Badsha turns clicks into customers with buyer psychology & data-driven CRO." />
+        <link rel="canonical" href="https://conversionliftlab.com/about" />
+      </Helmet>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 pb-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
           <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }}>
@@ -38,20 +44,39 @@ export default function About() {
             </p>
           </motion.div>
 
-          <motion.div initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.2 }} className="grid grid-cols-2 gap-4">
-            {achievements.map((a, i) => {
-              const Icon = a.icon;
-              const data = t(a.en, a.bn);
-              return (
-                <div key={i} className="glass rounded-2xl p-6 text-center">
-                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-3 ${isDark ? 'bg-indigo-500/20' : 'bg-indigo-50'}`}>
-                    <Icon size={22} className="text-indigo-600" />
+          <motion.div initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.2 }} className="flex flex-col gap-6">
+            {/* Photo */}
+            <div className="flex justify-center lg:justify-end">
+              <div className="relative">
+                <div className="absolute -inset-3 rounded-3xl bg-gradient-to-br from-indigo-500/30 to-purple-500/30 blur-2xl" />
+                <div className="relative w-64 h-72 sm:w-72 sm:h-80 rounded-3xl overflow-hidden border border-indigo-500/20 shadow-2xl">
+                  <img src="/images/rahim.png" alt="Rahim Badsha — CRO Landing Page Expert" className="w-full h-full object-cover object-top" />
+                  <div className="absolute bottom-3 left-3 right-3 glass rounded-xl px-3 py-2 flex items-center gap-2">
+                    <Award size={16} className="text-indigo-600 shrink-0" />
+                    <div>
+                      <div className={`text-xs font-semibold ${isDark ? 'text-white' : 'text-slate-900'}`}>{t('Top Rated on Upwork', 'আপওয়ার্কে টপ রেটেড')}</div>
+                      <div className="text-xs text-indigo-600">100% JSS · $200K+ Earned</div>
+                    </div>
                   </div>
-                  <div className="text-3xl font-bold text-gradient mb-1">{data.val}</div>
-                  <div className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>{data.label}</div>
                 </div>
-              );
-            })}
+              </div>
+            </div>
+            {/* Achievement grid */}
+            <div className="grid grid-cols-2 gap-3">
+              {achievements.map((a, i) => {
+                const Icon = a.icon;
+                const data = t(a.en, a.bn);
+                return (
+                  <div key={i} className="glass rounded-2xl p-5 text-center">
+                    <div className={`w-10 h-10 rounded-xl flex items-center justify-center mx-auto mb-2 ${isDark ? 'bg-indigo-500/20' : 'bg-indigo-50'}`}>
+                      <Icon size={20} className="text-indigo-600" />
+                    </div>
+                    <div className="text-2xl font-bold text-gradient mb-1">{data.val}</div>
+                    <div className={`text-xs ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>{data.label}</div>
+                  </div>
+                );
+              })}
+            </div>
           </motion.div>
         </div>
 

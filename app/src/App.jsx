@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
 import { LangProvider } from './context/LangContext';
 import { ThemeProvider } from './context/ThemeContext';
 import Navbar from './components/Navbar';
@@ -9,6 +10,7 @@ import Contact from './pages/Contact';
 
 function App() {
   return (
+    <HelmetProvider>
     <ThemeProvider>
     <LangProvider>
       <BrowserRouter>
@@ -22,6 +24,7 @@ function App() {
       </BrowserRouter>
     </LangProvider>
     </ThemeProvider>
+    </HelmetProvider>
   );
 }
 

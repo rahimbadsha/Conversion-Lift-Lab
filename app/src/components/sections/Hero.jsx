@@ -45,6 +45,8 @@ const platforms = [
   'Webflow', 'ClickFunnels', 'GoHighLevel', 'HubSpot',
   'Unbounce', 'Instapage', 'WordPress', 'Shopify',
   'Systeme.io', 'Funnelish', 'Gem Pages', 'Elementor',
+  'Wix', 'Squarespace', 'Kajabi', 'Kartra',
+  'LeadPages', 'ActiveCampaign', 'Simvoly', 'Custom Code',
 ];
 
 // Duplicated for seamless loop

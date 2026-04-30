@@ -55,7 +55,7 @@ export default function Footer() {
           <div>
             <h4 className={`font-medium mb-4 text-sm ${isDark ? 'text-white' : 'text-slate-900'}`}>{t('Contact', 'যোগাযোগ')}</h4>
             <ul className={`space-y-2 text-sm ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
-              <li><a href="mailto:rahimbadsha.cse@gmail.com" className="hover:text-indigo-600 transition-colors break-all">rahimbadsha.cse@gmail.com</a></li>
+              <li><a href="mailto:contact@conversionliftlab.com" className="hover:text-indigo-600 transition-colors break-all">contact@conversionliftlab.com</a></li>
               <li><a href="https://www.upwork.com/freelancers/rahimbadsha" target="_blank" rel="noopener" className="hover:text-indigo-600 transition-colors">Upwork Profile</a></li>
               <li><a href="https://www.fiverr.com/s/8zk7Wpv" target="_blank" rel="noopener" className="hover:text-indigo-600 transition-colors">Fiverr Profile</a></li>
               <li><a href={getWaLink()} target="_blank" rel="noopener" className="hover:text-green-600 transition-colors">WhatsApp</a></li>

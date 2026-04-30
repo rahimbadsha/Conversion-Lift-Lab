@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { useForm } from 'react-hook-form';
 import { Send, Mail, MessageSquare, Clock } from 'lucide-react';
@@ -6,8 +7,8 @@ import { useTheme } from '../context/ThemeContext';
 import { useState } from 'react';
 
 // FormSubmit.co — no key needed. On first submission you'll get an activation email
-// at rahimbadsha.cse@gmail.com — click "Activate" once, then all submissions deliver.
-const FORM_ENDPOINT = 'https://formsubmit.co/ajax/rahimbadsha.cse@gmail.com';
+// at contact@conversionliftlab.com — click "Activate" once, then all submissions deliver.
+const FORM_ENDPOINT = 'https://formsubmit.co/ajax/contact@conversionliftlab.com';
 
 const WA_LINK = (() => {
   const p = ['880', '163', '288', '8127'];
@@ -34,7 +35,7 @@ export default function Contact() {
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({
           _subject: `New Lead from ConversionLiftLab — ${data.name}`,
-          _autoresponse: `Hi ${data.name}, thanks for reaching out to ConversionLiftLab! I received your message and will get back to you within 24 hours. — Rahim Badsha`,
+          _autoresponse: `Hi ${data.name}, thanks for reaching out to ConversionLiftLab! I received your message and will get back to you within 2 hours. — Rahim Badsha`,
           _template: 'table',
           ...data,
         }),
@@ -53,14 +54,19 @@ export default function Contact() {
   const inputCls = (hasError) => `form-input ${hasError ? 'error' : ''}`;
 
   const contactItems = [
-    { icon: Mail, label: t('Email', 'ইমেইল'), value: 'rahimbadsha.cse@gmail.com', href: 'mailto:rahimbadsha.cse@gmail.com' },
+    { icon: Mail, label: t('Email', 'ইমেইল'), value: 'contact@conversionliftlab.com', href: 'mailto:contact@conversionliftlab.com' },
     { icon: WA_ICON, label: 'WhatsApp', value: t('Chat directly on WhatsApp', 'WhatsApp-এ সরাসরি চ্যাট করুন'), href: WA_LINK },
     { icon: MessageSquare, label: 'Upwork', value: t('Message on Upwork', 'আপওয়ার্কে মেসেজ'), href: 'https://www.upwork.com/freelancers/rahimbadsha' },
-    { icon: Clock, label: t('Response Time', 'সাড়া দেওয়ার সময়'), value: t('Within 24 hours', '২৪ ঘণ্টার মধ্যে'), href: null },
+    { icon: Clock, label: t('Response Time', 'সাড়া দেওয়ার সময়'), value: t('Within 2 hours', '২ ঘণ্টার মধ্যে'), href: null },
   ];
 
   return (
     <main className={`min-h-screen pt-24 pb-20 ${isDark ? 'bg-[#050816]' : 'bg-slate-50'}`}>
+      <Helmet>
+        <title>Contact ConversionLiftLab | Free CRO Audit — Rahim Badsha</title>
+        <meta name="description" content="Get a free CRO audit and discuss your project. Response within 2 hours. Contact Rahim Badsha via email, WhatsApp, or Upwork. No pushy sales — just results." />
+        <link rel="canonical" href="https://conversionliftlab.com/contact" />
+      </Helmet>
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-14">
           <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className={`text-4xl lg:text-5xl font-bold mb-4 ${isDark ? 'text-white' : 'text-slate-900'}`}>
@@ -68,7 +74,7 @@ export default function Contact() {
             <span className="text-gradient">{t('That Converts', 'যা রূপান্তর করে')}</span>
           </motion.h1>
           <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }} className={`max-w-lg mx-auto ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
-            {t("Tell me about your project and I'll get back to you within 24 hours with next steps.", 'আপনার প্রজেক্ট সম্পর্কে বলুন এবং আমি ২৪ ঘণ্টার মধ্যে ফিরে আসব।')}
+            {t("Tell me about your project and I'll get back to you within 2 hours with next steps.", 'আপনার প্রজেক্ট সম্পর্কে বলুন এবং আমি ২ ঘণ্টার মধ্যে ফিরে আসব।')}
           </motion.p>
         </div>
 
@@ -117,7 +123,7 @@ export default function Contact() {
                 </div>
                 <h3 className={`text-2xl font-bold ${isDark ? 'text-white' : 'text-slate-900'}`}>{t('Message Sent!', 'মেসেজ পাঠানো হয়েছে!')}</h3>
                 <p className={isDark ? 'text-slate-400' : 'text-slate-600'}>
-                  {t("Thanks for reaching out! Check your inbox — I've sent you a confirmation. I'll review your project and reply within 24 hours.", 'যোগাযোগের জন্য ধন্যবাদ! আপনার ইনবক্স চেক করুন — আমি একটি নিশ্চিতকরণ পাঠিয়েছি।')}
+                  {t("Thanks for reaching out! Check your inbox — I've sent you a confirmation. I'll review your project and reply within 2 hours.", 'যোগাযোগের জন্য ধন্যবাদ! আপনার ইনবক্স চেক করুন — আমি একটি নিশ্চিতকরণ পাঠিয়েছি।')}
                 </p>
                 <a href={WA_LINK} target="_blank" rel="noopener" className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-6 py-2.5 rounded-full text-sm font-medium transition-colors mt-2">
                   <WA_ICON />
