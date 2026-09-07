@@ -23,7 +23,7 @@ export default function Footer() {
             <div className="flex items-center gap-2 mb-4">
               <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white font-bold text-sm">CL</div>
               <span className={`font-semibold ${isDark ? 'text-white' : 'text-slate-900'}`}>
-                ConversionLift<span className="text-gradient">Lab</span>
+                Conversion<span className="text-gradient">Lift</span>Lab
               </span>
             </div>
             <p className={`text-sm leading-relaxed max-w-sm mb-4 ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>

@@ -39,7 +39,7 @@ export default function Navbar() {
             CL
           </div>
           <span className={`font-semibold hidden sm:block text-sm ${isDark ? 'text-white' : 'text-slate-800'}`}>
-            ConversionLift<span className="text-gradient">Lab</span>
+            Conversion<span className="text-gradient">Lift</span>Lab
           </span>
         </Link>
 
