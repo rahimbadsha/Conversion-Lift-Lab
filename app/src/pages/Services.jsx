@@ -252,7 +252,7 @@ export default function Services() {
             {t('Core Services', 'মূল সেবা')}
           </h2>
           <p className={`max-w-xl mx-auto mb-12 ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
-            {t("These are the three things I do most — where most of my 1050+ projects have come from.", 'এই তিনটি কাজ আমি সবচেয়ে বেশি করি।')}
+            {t("These are the three things I do most — where most of my 1050+ pages and funnels have come from.", 'এই তিনটি কাজ আমি সবচেয়ে বেশি করি।')}
           </p>
         </div>
 

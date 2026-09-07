@@ -27,7 +27,7 @@ export default function Footer() {
               </span>
             </div>
             <p className={`text-sm leading-relaxed max-w-sm mb-4 ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
-              {t('Expert CRO landing pages & funnels that convert. 1050+ pages built, $200K+ earned on Upwork, 100% Job Success.', '১০৫০+ পেজ তৈরি, ১০০% জব সাফল্য সহ CRO ল্যান্ডিং পেজ ও ফানেল বিশেষজ্ঞ।')}
+              {t('Expert CRO landing pages & funnels that convert. 1050+ pages & funnels built, $200K+ earned on Upwork, 100% Job Success.', '১০৫০+ পেজ ও ফানেল তৈরি, ১০০% জব সাফল্য সহ CRO ল্যান্ডিং পেজ ও ফানেল বিশেষজ্ঞ।')}
             </p>
             {/* WhatsApp button — number not shown as text */}
             <a

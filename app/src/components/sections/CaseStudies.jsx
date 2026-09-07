@@ -150,7 +150,7 @@ export default function CaseStudies() {
             rel="noopener noreferrer"
             className="btn-primary"
           >
-            {t('See all 358 completed jobs on Upwork', 'আপওয়ার্কে সকল ৩৫৮টি সম্পন্ন কাজ দেখুন')}
+            {t('See all 358+ reviews on Upwork', 'আপওয়ার্কে সকল ৩৫৮+ রিভিউ দেখুন')}
             <ExternalLink size={16} />
           </a>
         </motion.div>

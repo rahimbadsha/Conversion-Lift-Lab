@@ -5,7 +5,7 @@ import { useTheme } from '../../context/ThemeContext';
 import { useEffect, useRef } from 'react';
 
 const stats = [
-  { en: '1050+ Pages Built', bn: '১০৫০+ পেজ', num: 1050, suffix: '+' },
+  { en: '1050+ Pages & Funnels', bn: '১০৫০+ পেজ ও ফানেল', num: 1050, suffix: '+' },
   { en: '100% Job Success', bn: '১০০% সাফল্য', num: 100, suffix: '%' },
   { en: '$200K+ Earned', bn: '$২০০K+ আয়', num: 200, suffix: 'K+' },
   { en: '10+ Years Exp.', bn: '১০+ বছর', num: 10, suffix: '+' },

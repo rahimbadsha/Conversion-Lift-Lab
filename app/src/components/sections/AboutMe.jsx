@@ -7,7 +7,7 @@ const highlights = [
   { en: '10+ years building high-converting pages', bn: '১০+ বছর ধরে উচ্চ-রূপান্তরকারী পেজ তৈরি' },
   { en: '1050+ landing pages delivered across 12 platforms', bn: '১২টি প্ল্যাটফর্মে ১০৫০+ ল্যান্ডিং পেজ ডেলিভারি' },
   { en: '100% Job Success Score on Upwork — Top Rated', bn: 'আপওয়ার্কে ১০০% জব সাফল্য — টপ রেটেড' },
-  { en: '$200K+ earned from 358+ completed projects', bn: '৩৫৮+ সম্পন্ন প্রজেক্ট থেকে $২০০K+ আয়' },
+  { en: '$200K+ earned across 358+ reviews', bn: '৩৫৮+ রিভিউ জুড়ে $২০০K+ আয়' },
   { en: '2-year retainer with TortExpert, ongoing with TrueGoldRepublic', bn: 'TortExpert-এ ২ বছরের রিটেইনার, TrueGoldRepublic চলমান' },
 ];
 

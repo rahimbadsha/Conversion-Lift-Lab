@@ -9,7 +9,7 @@ const platforms = ['Webflow', 'ClickFunnels', 'GoHighLevel', 'HubSpot', 'Unbounc
 
 const achievements = [
   { icon: Award, en: { label: 'Top Rated on Upwork', val: '100% JSS' }, bn: { label: 'আপওয়ার্কে টপ রেটেড', val: '১০০% JSS' } },
-  { icon: Users, en: { label: 'Jobs Completed', val: '358+' }, bn: { label: 'সম্পন্ন কাজ', val: '৩৫৮+' } },
+  { icon: Users, en: { label: 'Reviews', val: '358+' }, bn: { label: 'রিভিউ', val: '৩৫৮+' } },
   { icon: TrendingUp, en: { label: 'Total Earnings', val: '$200K+' }, bn: { label: 'মোট আয়', val: '$২০০K+' } },
   { icon: Clock, en: { label: 'Years Experience', val: '10+' }, bn: { label: 'বছরের অভিজ্ঞতা', val: '১০+' } },
 ];
