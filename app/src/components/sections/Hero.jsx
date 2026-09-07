@@ -5,7 +5,7 @@ import { useTheme } from '../../context/ThemeContext';
 import { useEffect, useRef } from 'react';
 
 const stats = [
-  { en: '950+ Pages Built', bn: '৯৫০+ পেজ', num: 950, suffix: '+' },
+  { en: '1050+ Pages Built', bn: '১০৫০+ পেজ', num: 1050, suffix: '+' },
   { en: '100% Job Success', bn: '১০০% সাফল্য', num: 100, suffix: '%' },
   { en: '$200K+ Earned', bn: '$২০০K+ আয়', num: 200, suffix: 'K+' },
   { en: '10+ Years Exp.', bn: '১০+ বছর', num: 10, suffix: '+' },
@@ -112,7 +112,7 @@ export default function Hero() {
           className={`text-center text-lg sm:text-xl max-w-2xl mx-auto mb-10 ${isDark ? 'text-slate-400' : 'text-slate-600'}`}
         >
           {t(
-            'CRO-focused funnels, sales pages & lead gen systems built for measurable ROI. 10+ years, 950+ pages delivered.',
+            'CRO-focused funnels, sales pages & lead gen systems built for measurable ROI. 10+ years, 1050+ pages delivered.',
             'CRO-কেন্দ্রিক ফানেল, সেলস পেজ ও লিড জেন সিস্টেম পরিমাপযোগ্য ROI-এর জন্য।'
           )}
         </motion.p>

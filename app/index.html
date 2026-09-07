@@ -4,18 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Primary SEO -->
-    <title>ConversionLiftLab | CRO Landing Page & Funnel Expert — Rahim Badsha</title>
-    <meta name="description" content="Top Rated Upwork freelancer (100% JSS, $200K+) specializing in CRO landing pages, sales funnels & AI-powered lead automation. 950+ pages built across Webflow, ClickFunnels, GoHighLevel & 15+ platforms. Get a free CRO audit." />
+    <!-- Primary SEO — title, description & canonical are set per-page by react-helmet-async
+         (see src/pages/*.jsx). Do not add them here: a static tag here plus a Helmet-managed
+         one on the same page produces duplicate <title>/<meta> tags, since Helmet only manages
+         tags it renders itself and never removes ones already present in the source HTML. -->
     <meta name="keywords" content="landing page expert, CRO specialist, conversion rate optimization, sales funnel builder, Webflow expert, ClickFunnels expert, GoHighLevel landing page, lead generation, high converting landing page, Rahim Badsha, ConversionLiftLab, AI lead automation, CRM automation" />
     <meta name="author" content="Rahim Badsha — ConversionLiftLab" />
-    <link rel="canonical" href="https://conversionliftlab.com/" />
 
     <!-- Open Graph (Facebook, LinkedIn, WhatsApp) -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://conversionliftlab.com/" />
     <meta property="og:title" content="ConversionLiftLab | CRO Landing Pages That Actually Convert" />
-    <meta property="og:description" content="Top Rated on Upwork · 100% Job Success · 950+ pages · $200K+ earned. I build landing pages and funnels that drive measurable ROI — with AI-powered lead automation." />
+    <meta property="og:description" content="Top Rated on Upwork · 100% Job Success · 1050+ pages · $200K+ earned. Landing pages and funnels built for measurable ROI, with AI-powered lead automation." />
     <meta property="og:image" content="https://conversionliftlab.com/images/og-cover.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -26,7 +26,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content="https://conversionliftlab.com/" />
     <meta name="twitter:title" content="ConversionLiftLab | CRO Landing Pages That Actually Convert" />
-    <meta name="twitter:description" content="Top Rated on Upwork · 100% JSS · 950+ pages built. CRO landing pages, funnels & AI lead automation." />
+    <meta name="twitter:description" content="Top Rated on Upwork · 100% JSS · 1050+ pages built. CRO landing pages, funnels & AI lead automation." />
     <meta name="twitter:image" content="https://conversionliftlab.com/images/og-cover.png" />
 
     <!-- Favicon -->
@@ -43,7 +43,7 @@
           "name": "Rahim Badsha",
           "alternateName": "Md Rahim Badsha",
           "jobTitle": "CRO Specialist & Landing Page Expert",
-          "description": "Top Rated Upwork freelancer with 100% Job Success Score. 10+ years building high-converting landing pages, sales funnels, and AI-powered lead automation systems. 950+ pages delivered, $200K+ earned.",
+          "description": "Top Rated Upwork freelancer with 100% Job Success Score. 10+ years building high-converting landing pages, sales funnels, and AI-powered lead automation systems. 1050+ pages delivered, $200K+ earned.",
           "url": "https://conversionliftlab.com",
           "email": "contact@conversionliftlab.com",
           "image": "https://conversionliftlab.com/images/rahim.png",
@@ -52,7 +52,8 @@
             "https://www.fiverr.com/s/8zk7Wpv",
             "https://www.linkedin.com/in/abdrahimbd/"
           ],
-          "knowsAbout": ["CRO", "Landing Page Design", "Sales Funnels", "Webflow", "ClickFunnels", "GoHighLevel", "AI Automation", "Lead Generation", "Conversion Rate Optimization"]
+          "knowsAbout": ["CRO", "Landing Page Design", "Sales Funnels", "Webflow", "ClickFunnels", "GoHighLevel", "AI Automation", "Lead Generation", "Conversion Rate Optimization"],
+          "worksFor": { "@id": "https://conversionliftlab.com/#organization" }
         },
         {
           "@type": "Organization",
@@ -66,6 +67,7 @@
           "slogan": "Landing Pages That Actually Convert",
           "serviceArea": { "@type": "GeoShape", "name": "Worldwide" },
           "areaServed": "Worldwide",
+          "priceRange": "$997–$4997",
           "hasOfferCatalog": {
             "@type": "OfferCatalog",
             "name": "CRO Services",

@@ -5,7 +5,7 @@ import { useTheme } from '../../context/ThemeContext';
 
 const highlights = [
   { en: '10+ years building high-converting pages', bn: '১০+ বছর ধরে উচ্চ-রূপান্তরকারী পেজ তৈরি' },
-  { en: '950+ landing pages delivered across 12 platforms', bn: '১২টি প্ল্যাটফর্মে ৯৫০+ ল্যান্ডিং পেজ ডেলিভারি' },
+  { en: '1050+ landing pages delivered across 12 platforms', bn: '১২টি প্ল্যাটফর্মে ১০৫০+ ল্যান্ডিং পেজ ডেলিভারি' },
   { en: '100% Job Success Score on Upwork — Top Rated', bn: 'আপওয়ার্কে ১০০% জব সাফল্য — টপ রেটেড' },
   { en: '$200K+ earned from 358+ completed projects', bn: '৩৫৮+ সম্পন্ন প্রজেক্ট থেকে $২০০K+ আয়' },
   { en: '2-year retainer with TortExpert, ongoing with TrueGoldRepublic', bn: 'TortExpert-এ ২ বছরের রিটেইনার, TrueGoldRepublic চলমান' },
@@ -106,12 +106,10 @@ export default function AboutMe() {
                 {t("Work With Me", 'আমার সাথে কাজ করুন')}
               </a>
               <a
-                href="https://www.upwork.com/freelancers/rahimbadsha"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/about"
                 className={`flex items-center gap-2 glass px-6 py-3 rounded-full font-medium text-sm transition-all ${isDark ? 'text-white hover:border-indigo-500/40' : 'text-slate-700 hover:border-indigo-400'}`}
               >
-                {t('View Upwork Profile', 'আপওয়ার্ক প্রোফাইল দেখুন')}
+                {t('Read My Full Story', 'আমার সম্পূর্ণ গল্প পড়ুন')}
               </a>
             </div>
           </motion.div>

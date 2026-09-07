@@ -22,9 +22,31 @@ export default function About() {
   return (
     <main className={`min-h-screen pt-24 pb-0 ${isDark ? 'bg-[#050816]' : 'bg-slate-50'}`}>
       <Helmet>
-        <title>About Rahim Badsha | CRO Expert & Landing Page Specialist — ConversionLiftLab</title>
-        <meta name="description" content="10+ years, 950+ landing pages, $200K+ earned on Upwork with 100% Job Success Score. Learn how Rahim Badsha turns clicks into customers with buyer psychology & data-driven CRO." />
+        <title>About Rahim Badsha | CRO & Landing Page Expert</title>
+        <meta name="description" content="10+ years, 1050+ landing pages, $200K+ earned on Upwork (100% Job Success). How Rahim Badsha turns clicks into customers with data-driven CRO." />
         <link rel="canonical" href="https://conversionliftlab.com/about" />
+        <script type="application/ld+json">{JSON.stringify({
+          '@context': 'https://schema.org',
+          '@graph': [
+            {
+              '@type': 'WebPage',
+              '@id': 'https://conversionliftlab.com/about#webpage',
+              url: 'https://conversionliftlab.com/about',
+              name: 'About Rahim Badsha | CRO & Landing Page Expert',
+              description: '10+ years, 1050+ landing pages, $200K+ earned on Upwork (100% Job Success).',
+              isPartOf: { '@id': 'https://conversionliftlab.com/#website' },
+              about: { '@id': 'https://conversionliftlab.com/#person' },
+              mainEntity: { '@id': 'https://conversionliftlab.com/#person' },
+            },
+            {
+              '@type': 'BreadcrumbList',
+              itemListElement: [
+                { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://conversionliftlab.com/' },
+                { '@type': 'ListItem', position: 2, name: 'About', item: 'https://conversionliftlab.com/about' },
+              ],
+            },
+          ],
+        })}</script>
       </Helmet>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 pb-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
@@ -34,7 +56,7 @@ export default function About() {
               {t('Hi, I\'m ', 'হ্যালো, আমি ')}<span className="text-gradient">Rahim Badsha</span>
             </h1>
             <p className={`leading-relaxed mb-4 ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
-              {t('I\'m a CRO specialist and landing page expert with over 10 years of experience building conversion-focused funnels for businesses across the globe. I\'ve delivered 950+ pages on Upwork with a 100% Job Success Score.', 'আমি একজন CRO বিশেষজ্ঞ এবং ল্যান্ডিং পেজ এক্সপার্ট যার বিশ্বজুড়ে ব্যবসার জন্য রূপান্তর-কেন্দ্রিক ফানেল তৈরিতে ১০ বছরেরও বেশি অভিজ্ঞতা আছে।')}
+              {t('I\'m a CRO specialist and landing page expert with over 10 years of experience building conversion-focused funnels for businesses across the globe. I\'ve delivered 1050+ pages on Upwork with a 100% Job Success Score.', 'আমি একজন CRO বিশেষজ্ঞ এবং ল্যান্ডিং পেজ এক্সপার্ট যার বিশ্বজুড়ে ব্যবসার জন্য রূপান্তর-কেন্দ্রিক ফানেল তৈরিতে ১০ বছরেরও বেশি অভিজ্ঞতা আছে।')}
             </p>
             <p className={`leading-relaxed mb-4 ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
               {t('My approach is rooted in buyer psychology, data, and direct-response copywriting. I don\'t just make pages look pretty — I architect them to convert. Every element has a reason.', 'আমার পদ্ধতি ক্রেতার মনোবিজ্ঞান, ডেটা এবং ডাইরেক্ট-রেসপন্স কপিরাইটিংয়ে প্রোথিত।')}
@@ -50,7 +72,7 @@ export default function About() {
               <div className="relative">
                 <div className="absolute -inset-3 rounded-3xl bg-gradient-to-br from-indigo-500/30 to-purple-500/30 blur-2xl" />
                 <div className="relative w-64 h-72 sm:w-72 sm:h-80 rounded-3xl overflow-hidden border border-indigo-500/20 shadow-2xl">
-                  <img src="/images/rahim.png" alt="Rahim Badsha — CRO Landing Page Expert" className="w-full h-full object-cover object-top" />
+                  <img src="/images/rahim.png" alt="Rahim Badsha — CRO Landing Page Expert" width="1024" height="1024" fetchPriority="high" className="w-full h-full object-cover object-top" />
                   <div className="absolute bottom-3 left-3 right-3 glass rounded-xl px-3 py-2 flex items-center gap-2">
                     <Award size={16} className="text-indigo-600 shrink-0" />
                     <div>
@@ -94,7 +116,7 @@ export default function About() {
           <div className={`space-y-4 leading-relaxed ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
             <p>{t('Most designers build landing pages that look good in Dribbble screenshots but fail in the real world. They focus on aesthetics over psychology — and that\'s why conversion rates stay low.', 'অধিকাংশ ডিজাইনার ল্যান্ডিং পেজ তৈরি করেন যা Dribbble স্ক্রিনশটে ভালো দেখায় কিন্তু বাস্তব জগতে ব্যর্থ হয়।')}</p>
             <p>{t('I study buyer intent, map the emotional journey, and engineer every headline, subhead, bullet, and CTA to move the reader toward a single action. This is CRO — not art.', 'আমি ক্রেতার উদ্দেশ্য অধ্যয়ন করি, আবেগময় যাত্রা ম্যাপ করি এবং প্রতিটি হেডলাইন এবং CTA ইঞ্জিনিয়ার করি।')}</p>
-            <p>{t('After 10 years and 950+ pages, the principle remains the same: understand your customer better than anyone else, and the conversions follow naturally.', '১০ বছর এবং ৯৫০+ পেজের পরে, নীতি একই থাকে: আপনার গ্রাহককে সবার চেয়ে ভালো বুঝুন।')}</p>
+            <p>{t('After 10 years and 1050+ pages, the principle remains the same: understand your customer better than anyone else, and the conversions follow naturally.', '১০ বছর এবং ১০৫০+ পেজের পরে, নীতি একই থাকে: আপনার গ্রাহককে সবার চেয়ে ভালো বুঝুন।')}</p>
           </div>
         </motion.div>
       </div>

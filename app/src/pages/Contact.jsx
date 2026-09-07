@@ -63,9 +63,30 @@ export default function Contact() {
   return (
     <main className={`min-h-screen pt-24 pb-20 ${isDark ? 'bg-[#050816]' : 'bg-slate-50'}`}>
       <Helmet>
-        <title>Contact ConversionLiftLab | Free CRO Audit — Rahim Badsha</title>
-        <meta name="description" content="Get a free CRO audit and discuss your project. Response within 2 hours. Contact Rahim Badsha via email, WhatsApp, or Upwork. No pushy sales — just results." />
+        <title>Contact ConversionLiftLab | Free CRO Audit</title>
+        <meta name="description" content="Get a free CRO audit and discuss your project. Response within 2 hours via email, WhatsApp, or Upwork. No pushy sales — just results." />
         <link rel="canonical" href="https://conversionliftlab.com/contact" />
+        <script type="application/ld+json">{JSON.stringify({
+          '@context': 'https://schema.org',
+          '@graph': [
+            {
+              '@type': 'ContactPage',
+              '@id': 'https://conversionliftlab.com/contact#webpage',
+              url: 'https://conversionliftlab.com/contact',
+              name: 'Contact ConversionLiftLab | Free CRO Audit',
+              description: 'Get a free CRO audit and discuss your project. Response within 2 hours via email, WhatsApp, or Upwork.',
+              isPartOf: { '@id': 'https://conversionliftlab.com/#website' },
+              about: { '@id': 'https://conversionliftlab.com/#organization' },
+            },
+            {
+              '@type': 'BreadcrumbList',
+              itemListElement: [
+                { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://conversionliftlab.com/' },
+                { '@type': 'ListItem', position: 2, name: 'Contact', item: 'https://conversionliftlab.com/contact' },
+              ],
+            },
+          ],
+        })}</script>
       </Helmet>
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-14">

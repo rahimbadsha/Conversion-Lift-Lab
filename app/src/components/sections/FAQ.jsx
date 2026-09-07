@@ -19,10 +19,12 @@ function FAQItem({ item, index, isDark }) {
 
   return (
     <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.06 }} className="glass rounded-xl overflow-hidden">
-      <button onClick={() => setOpen(v => !v)} className="w-full flex items-center justify-between p-5 text-left gap-4">
-        <span className={`font-medium text-sm ${isDark ? 'text-white' : 'text-slate-900'}`}>{t(item.en.q, item.bn.q)}</span>
-        <ChevronDown size={18} className={`text-indigo-600 shrink-0 transition-transform duration-300 ${open ? 'rotate-180' : ''}`} />
-      </button>
+      <h3 className="m-0 text-base font-normal">
+        <button onClick={() => setOpen(v => !v)} aria-expanded={open} className="w-full flex items-center justify-between p-5 text-left gap-4">
+          <span className={`font-medium text-sm ${isDark ? 'text-white' : 'text-slate-900'}`}>{t(item.en.q, item.bn.q)}</span>
+          <ChevronDown size={18} className={`text-indigo-600 shrink-0 transition-transform duration-300 ${open ? 'rotate-180' : ''}`} />
+        </button>
+      </h3>
       <AnimatePresence>
         {open && (
           <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.3 }}>
