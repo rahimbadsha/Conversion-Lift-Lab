@@ -26,7 +26,8 @@ Webflow, ClickFunnels (1 & 2), GoHighLevel, HubSpot, Unbounce, Instapage, WordPr
 
 ## Pages
 
-- [Home](https://conversionliftlab.com/): services, case studies, process, pricing, FAQ
+- [Home](https://conversionliftlab.com/): overview, case studies, process, pricing, FAQ
+- [Services](https://conversionliftlab.com/services): full breakdown of landing page design & development, CRO, and sales funnel building — the three core services — plus supporting services, platforms, and FAQ
 - [About](https://conversionliftlab.com/about): background, achievements, philosophy
 - [Contact](https://conversionliftlab.com/contact): contact form, response time (within 2 hours), WhatsApp, Upwork, Fiverr
 

@@ -94,7 +94,7 @@ export default function Testimonials() {
   const [activeVideo, setActiveVideo] = useState(null);
 
   return (
-    <section className={`py-20 lg:py-28 ${isDark ? 'bg-[#080c1a]' : 'bg-white'}`}>
+    <section id="testimonials" className={`py-20 lg:py-28 ${isDark ? 'bg-[#080c1a]' : 'bg-white'}`}>
       <AnimatePresence>{activeVideo && <VideoModal video={activeVideo} onClose={() => setActiveVideo(null)} />}</AnimatePresence>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6">

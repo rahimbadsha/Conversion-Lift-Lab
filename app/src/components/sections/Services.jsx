@@ -115,6 +115,12 @@ export default function Services() {
             );
           })}
         </div>
+
+        <div className="text-center mt-10">
+          <a href="/services" className="inline-flex items-center gap-2 text-indigo-600 hover:text-indigo-700 font-medium text-sm">
+            {t('See full services & pricing', 'সম্পূর্ণ সেবা ও মূল্য দেখুন')}
+          </a>
+        </div>
       </div>
     </section>
   );

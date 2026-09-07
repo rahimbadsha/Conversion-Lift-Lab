@@ -15,7 +15,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = join(__dirname, '..');
 const dist = join(root, 'dist');
 const port = 4713;
-const routes = ['/', '/about', '/contact'];
+const routes = ['/', '/about', '/services', '/contact'];
 
 const CHROME = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
 

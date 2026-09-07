@@ -5,7 +5,7 @@ import { useLang } from '../context/LangContext';
 import { useTheme } from '../context/ThemeContext';
 
 const navLinks = [
-  { en: 'Services', bn: 'সেবাসমূহ', href: '/#services' },
+  { en: 'Services', bn: 'সেবাসমূহ', href: '/services' },
   { en: 'Case Studies', bn: 'কেস স্টাডি', href: '/#case-studies' },
   { en: 'Process', bn: 'প্রক্রিয়া', href: '/#process' },
   { en: 'Pricing', bn: 'মূল্য', href: '/#pricing' },
