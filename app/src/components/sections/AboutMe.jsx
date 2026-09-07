@@ -108,7 +108,7 @@ export default function AboutMe() {
               <a
                 href="https://www.upwork.com/freelancers/rahimbadsha"
                 target="_blank"
-                rel="noopener"
+                rel="noopener noreferrer"
                 className={`flex items-center gap-2 glass px-6 py-3 rounded-full font-medium text-sm transition-all ${isDark ? 'text-white hover:border-indigo-500/40' : 'text-slate-700 hover:border-indigo-400'}`}
               >
                 {t('View Upwork Profile', 'আপওয়ার্ক প্রোফাইল দেখুন')}

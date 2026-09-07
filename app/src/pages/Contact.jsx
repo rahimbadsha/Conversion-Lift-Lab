@@ -95,7 +95,7 @@ export default function Contact() {
                 </div>
               );
               return item.href ? (
-                <a key={i} href={item.href} target={item.href.startsWith('mailto') ? undefined : '_blank'} rel="noopener" className="block hover:scale-[1.01] transition-transform">{inner}</a>
+                <a key={i} href={item.href} target={item.href.startsWith('mailto') ? undefined : '_blank'} rel="noopener noreferrer" className="block hover:scale-[1.01] transition-transform">{inner}</a>
               ) : <div key={i}>{inner}</div>;
             })}
 
@@ -125,7 +125,7 @@ export default function Contact() {
                 <p className={isDark ? 'text-slate-400' : 'text-slate-600'}>
                   {t("Thanks for reaching out! Check your inbox — I've sent you a confirmation. I'll review your project and reply within 2 hours.", 'যোগাযোগের জন্য ধন্যবাদ! আপনার ইনবক্স চেক করুন — আমি একটি নিশ্চিতকরণ পাঠিয়েছি।')}
                 </p>
-                <a href={WA_LINK} target="_blank" rel="noopener" className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-6 py-2.5 rounded-full text-sm font-medium transition-colors mt-2">
+                <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-6 py-2.5 rounded-full text-sm font-medium transition-colors mt-2">
                   <WA_ICON />
                   {t('Also message on WhatsApp', 'WhatsApp-এও মেসেজ করুন')}
                 </a>
@@ -173,7 +173,7 @@ export default function Contact() {
                 </button>
                 <p className={`text-center text-xs ${isDark ? 'text-slate-600' : 'text-slate-400'}`}>
                   {t('Or chat instantly: ', 'অথবা সরাসরি: ')}
-                  <a href={WA_LINK} target="_blank" rel="noopener" className="text-green-600 hover:text-green-700 font-medium">WhatsApp</a>
+                  <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="text-green-600 hover:text-green-700 font-medium">WhatsApp</a>
                 </p>
               </form>
             )}

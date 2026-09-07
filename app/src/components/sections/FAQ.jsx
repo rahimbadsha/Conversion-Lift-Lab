@@ -10,7 +10,7 @@ const faqs = [
   { en: { q: 'Do you write copy or just design?', a: 'Both. I handle research, copy, design, and build end-to-end. You can provide your own copy if you prefer — but conversion-focused copy from me is included in every project.' }, bn: { q: 'আপনি কি কপি লেখেন নাকি শুধু ডিজাইন করেন?', a: 'উভয়। আমি গবেষণা, কপি, ডিজাইন এবং বিল্ড সম্পূর্ণভাবে পরিচালনা করি।' } },
   { en: { q: 'What\'s your revision policy?', a: 'Starter: 2 rounds. Pro Funnel & Retainer: unlimited. I work until you\'re happy — not until my hours run out.' }, bn: { q: 'আপনার রিভিশন পলিসি কী?', a: 'স্টার্টার: ২ রাউন্ড। প্রো ফানেল ও রিটেইনার: আনলিমিটেড। আপনি সন্তুষ্ট না হওয়া পর্যন্ত কাজ করি।' } },
   { en: { q: 'Do you offer post-launch optimization?', a: 'Yes — retainer plan includes ongoing A/B testing, heatmap analysis, and monthly CRO reports. For one-time projects, 30-day post-launch support is included.' }, bn: { q: 'আপনি কি লঞ্চের পরে অপ্টিমাইজেশন অফার করেন?', a: 'হ্যাঁ — রিটেইনার প্ল্যানে চলমান A/B টেস্টিং এবং মাসিক CRO রিপোর্ট অন্তর্ভুক্ত।' } },
-  { en: { q: 'How do I get started?', a: 'Fill in the contact form, send a message on Upwork or Fiverr, or book a free 30-min audit call. I respond within 24 hours.' }, bn: { q: 'কিভাবে শুরু করবো?', a: 'কন্টাক্ট ফর্ম পূরণ করুন, Upwork বা Fiverr-এ মেসেজ পাঠান। আমি ২৪ ঘণ্টার মধ্যে সাড়া দিই।' } },
+  { en: { q: 'How do I get started?', a: 'Fill in the contact form, send a message on Upwork or Fiverr, or book a free 30-min audit call. I respond within 2 hours.' }, bn: { q: 'কিভাবে শুরু করবো?', a: 'কন্টাক্ট ফর্ম পূরণ করুন, Upwork বা Fiverr-এ মেসেজ পাঠান। আমি ২ ঘণ্টার মধ্যে সাড়া দিই।' } },
 ];
 
 function FAQItem({ item, index, isDark }) {

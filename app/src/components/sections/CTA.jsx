@@ -24,13 +24,13 @@ export default function CTA() {
             <a href="/contact" className="flex items-center justify-center gap-2 bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-8 py-4 rounded-full font-semibold text-base hover:opacity-90 transition-all hover:scale-105 active:scale-95 shadow-xl shadow-indigo-500/25">
               {t('Get My Free Audit', 'ফ্রি অডিট পান')}<ArrowRight size={18} />
             </a>
-            <a href="https://www.upwork.com/freelancers/rahimbadsha" target="_blank" rel="noopener" className={`flex items-center justify-center gap-2 glass px-8 py-4 rounded-full font-medium text-sm transition-all ${isDark ? 'text-white hover:border-indigo-500/40' : 'text-slate-700 hover:border-indigo-400'}`}>
+            <a href="https://www.upwork.com/freelancers/rahimbadsha" target="_blank" rel="noopener noreferrer" className={`flex items-center justify-center gap-2 glass px-8 py-4 rounded-full font-medium text-sm transition-all ${isDark ? 'text-white hover:border-indigo-500/40' : 'text-slate-700 hover:border-indigo-400'}`}>
               <MessageSquare size={16} />
               {t('Message on Upwork', 'আপওয়ার্কে মেসেজ করুন')}
             </a>
           </div>
           <p className={`text-xs mt-6 ${isDark ? 'text-slate-600' : 'text-slate-400'}`}>
-            {t('Typically responds within 24 hours · No commitment required', 'সাধারণত ২৪ ঘণ্টার মধ্যে সাড়া দেন · কোনো প্রতিশ্রুতি প্রয়োজন নেই')}
+            {t('Typically responds within 2 hours · No commitment required', 'সাধারণত ২ ঘণ্টার মধ্যে সাড়া দেন · কোনো প্রতিশ্রুতি প্রয়োজন নেই')}
           </p>
         </motion.div>
       </div>

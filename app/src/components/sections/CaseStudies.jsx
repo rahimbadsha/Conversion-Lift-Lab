@@ -69,7 +69,7 @@ function Lightbox({ project, onClose }) {
             <a
               href="https://www.upwork.com/freelancers/rahimbadsha"
               target="_blank"
-              rel="noopener"
+              rel="noopener noreferrer"
               className="btn-primary text-sm py-2.5 px-5"
               style={{ fontSize: '13px', padding: '10px 20px' }}
             >
@@ -147,7 +147,7 @@ export default function CaseStudies() {
           <a
             href="https://www.upwork.com/freelancers/rahimbadsha"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
             className="btn-primary"
           >
             {t('See all 358 completed jobs on Upwork', 'আপওয়ার্কে সকল ৩৫৮টি সম্পন্ন কাজ দেখুন')}
