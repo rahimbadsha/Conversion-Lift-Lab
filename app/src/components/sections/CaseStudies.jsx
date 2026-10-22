@@ -157,6 +157,7 @@ export default function CaseStudies() {
             <ExternalLink size={16} />
           </a>
           <a href="/case-studies" className="btn-secondary ml-3 inline-flex">{t('Read the case studies', 'কেস স্টাডি পড়ুন')}</a>
+          <a href="/portfolio" className="btn-secondary ml-3 inline-flex">{t('Browse full-page designs', 'সম্পূর্ণ পেজ ডিজাইন দেখুন')}</a>
         </motion.div>
       </div>
     </section>

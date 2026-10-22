@@ -45,7 +45,7 @@ export default function Footer() {
           <div>
             <h4 className={`font-medium mb-4 text-sm ${isDark ? 'text-white' : 'text-slate-900'}`}>{t('Quick Links', 'দ্রুত লিঙ্ক')}</h4>
             <ul className={`space-y-2 text-sm ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
-              {[['/services', t('Services', 'সেবাসমূহ')], ['/case-studies', t('Case Studies', 'কেস স্টাডি')], ['/#process', t('Process', 'প্রক্রিয়া')], ['/#pricing', t('Pricing', 'মূল্য')], ['/website-score', t('Free CRO Audit Tool', 'ফ্রি CRO অডিট টুল')], ['/about', t('About', 'সম্পর্কে')], ['/contact', t('Contact', 'যোগাযোগ')]].map(([href, label]) => (
+              {[['/services', t('Services', 'সেবাসমূহ')], ['/case-studies', t('Case Studies', 'কেস স্টাডি')], ['/portfolio', t('Portfolio', 'পোর্টফোলিও')], ['/#process', t('Process', 'প্রক্রিয়া')], ['/#pricing', t('Pricing', 'মূল্য')], ['/website-score', t('Free CRO Audit Tool', 'ফ্রি CRO অডিট টুল')], ['/about', t('About', 'সম্পর্কে')], ['/contact', t('Contact', 'যোগাযোগ')]].map(([href, label]) => (
                 <li key={href}><a href={href} className="hover:text-indigo-600 transition-colors">{label}</a></li>
               ))}
             </ul>

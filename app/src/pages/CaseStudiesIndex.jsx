@@ -114,7 +114,13 @@ export default function CaseStudiesIndex() {
           ))}
         </div>
 
-        <p className={`text-xs text-center mt-10 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
+        <div className="text-center mt-10">
+          <a href="/portfolio" className="inline-flex items-center gap-2 text-indigo-500 hover:text-indigo-400 font-medium">
+            Browse 20 more full-page landing page designs <ArrowRight size={16} />
+          </a>
+        </div>
+
+        <p className={`text-xs text-center mt-6 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
           Results are the figures reported for each individual project. Every business, offer and traffic source is different, so your results will vary.
         </p>
 

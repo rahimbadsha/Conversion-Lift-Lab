@@ -18,7 +18,7 @@ const port = 4713;
 import { caseStudies } from '../src/data/caseStudies.js';
 
 const routes = [
-  '/', '/about', '/services', '/website-score', '/privacy', '/terms', '/contact', '/case-studies',
+  '/', '/about', '/services', '/website-score', '/privacy', '/terms', '/contact', '/case-studies', '/portfolio',
   ...caseStudies.map(c => `/case-studies/${c.slug}`),
 ];
 
