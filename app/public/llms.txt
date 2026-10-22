@@ -31,7 +31,7 @@ Webflow, ClickFunnels (1 & 2), GoHighLevel, HubSpot, Unbounce, Instapage, WordPr
 - [Free Smart CRO Audit](https://conversionliftlab.com/website-score): free automated CRO audit of any public landing page or website (message, calls to action, trust, friction, mobile and technical health)
 - [Privacy Policy](https://conversionliftlab.com/privacy) and [Terms & Disclaimer](https://conversionliftlab.com/terms)
 - [Case Studies](https://conversionliftlab.com/case-studies): 8 real landing page, advertorial and funnel projects (SaaS, legal lead generation, wellness, local services) with what was built and the reported result
-- [Portfolio](https://conversionliftlab.com/portfolio): 20 complete landing page designs (e-commerce, SaaS, lead generation, local service, health) viewable full-length
+- [Portfolio](https://conversionliftlab.com/portfolio): 110 complete landing page designs (e-commerce, SaaS, lead generation, local service, health, coaching, advertorials) viewable full-length
 - [About](https://conversionliftlab.com/about): background, achievements, philosophy
 - [Contact](https://conversionliftlab.com/contact): contact form, response time (within 2 hours), WhatsApp, Upwork, Fiverr
 

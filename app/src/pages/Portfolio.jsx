@@ -24,7 +24,7 @@ export default function Portfolio() {
     <main className={`min-h-screen pt-24 pb-20 ${isDark ? 'bg-[#050816]' : 'bg-slate-50'}`}>
       <Helmet>
         <title>Landing Page Design Portfolio: Full-Page Examples | ConversionLiftLab</title>
-        <meta name="description" content="Browse 20 complete landing page designs for e-commerce, SaaS, lead generation, local services and health brands. Scroll each page from top to bottom." />
+        <meta name="description" content={`Browse ${portfolioPages.length} complete landing page designs for e-commerce, SaaS, lead generation, local services, coaching and health brands. Scroll each page from top to bottom.`} />
         <link rel="canonical" href="https://conversionliftlab.com/portfolio" />
         <script type="application/ld+json">{JSON.stringify({
           '@context': 'https://schema.org',
@@ -62,7 +62,7 @@ export default function Portfolio() {
             Landing Page <span className="text-gradient">Design Portfolio</span>
           </h1>
           <p className={muted}>
-            {portfolioPages.length} complete landing pages across e-commerce, SaaS, lead generation, local services and health. Scroll each design from the first screen to the last.
+            {portfolioPages.length} complete landing pages across e-commerce, SaaS, lead generation, local services, coaching, advertorials and health. Scroll each design from the first screen to the last.
           </p>
         </motion.div>
 

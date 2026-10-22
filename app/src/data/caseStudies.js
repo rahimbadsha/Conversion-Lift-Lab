@@ -3,12 +3,14 @@
 //  - `built` / `approach` describe what is visibly in the page screenshot (design choices), not claimed causes of the result.
 //  - Optional fields (goal, challenge, timeline, platform, clientQuote, figmaUrl, liveUrl, result) render automatically when filled in.
 //    Leave them empty rather than guessing.
+//  - `page` points at a full-page design in portfolioPages.js. Studies without one fall back to `image`.
 //  - DRAFT fields (marked `// DRAFT`) are placeholders inferred from the page's purpose or from site-wide standard delivery
 //    times. They are NOT project facts: confirm or rewrite each one before treating it as final.
 
 export const caseStudies = [
   {
     slug: 'disputifier',
+    page: 'p76', // full-page design shown in the viewer (see portfolioPages.js)
     featured: true,
     platform: 'Webflow',
     timeline: 'Typically 7–14 days', // DRAFT
@@ -39,6 +41,7 @@ export const caseStudies = [
   },
   {
     slug: 'wellness-course-funnel',
+    page: 'p73', // full-page design shown in the viewer (see portfolioPages.js)
     timeline: 'Typically 7–14 days', // DRAFT
     goal: 'Move paid traffic toward a free session sign-up.', // DRAFT
     challenge: 'Visitors arriving from ads are cold. The page had to build enough trust and clarity to earn a free-session sign-up quickly.', // DRAFT
@@ -65,6 +68,7 @@ export const caseStudies = [
   },
   {
     slug: 'down-to-ground-advertorial',
+    page: 'p92', // full-page design shown in the viewer (see portfolioPages.js)
     timeline: 'Typically 3–5 days', // DRAFT
     goal: 'Warm up cold traffic with a story before presenting the offer.', // DRAFT
     challenge: 'Cold visitors will not click an obvious ad. The page needed to read like helpful editorial content while still leading to the offer.', // DRAFT
@@ -91,6 +95,7 @@ export const caseStudies = [
   },
   {
     slug: 'zapply-advertorial',
+    page: 'p107', // full-page design shown in the viewer (see portfolioPages.js)
     timeline: 'Typically 3–5 days', // DRAFT
     goal: 'Educate Dutch-speaking readers before presenting the supplement offer.', // DRAFT
     challenge: 'A long, information-heavy page in a different language had to stay easy to skim and still lead to a clear next step.', // DRAFT
@@ -143,6 +148,7 @@ export const caseStudies = [
   },
   {
     slug: 'saas-software-integration',
+    page: 'p101', // full-page design shown in the viewer (see portfolioPages.js)
     timeline: 'Typically 3–5 days', // DRAFT
     goal: 'Turn interested B2B visitors into demo requests.', // DRAFT
     challenge: 'Software integration is abstract. The page needed to explain the value in business terms and keep the form short.', // DRAFT
@@ -169,6 +175,7 @@ export const caseStudies = [
   },
   {
     slug: 'era-wedding',
+    page: 'p105', // full-page design shown in the viewer (see portfolioPages.js)
     timeline: 'Typically 3–5 days', // DRAFT
     goal: 'Turn visitors into wedding booking enquiries.', // DRAFT
     challenge: 'Couples compare many photographers. The page needed to feel personal, show proof quickly and make enquiring effortless.', // DRAFT
@@ -195,6 +202,7 @@ export const caseStudies = [
   },
   {
     slug: 'jl-studio',
+    page: 'p89', // full-page design shown in the viewer (see portfolioPages.js)
     featured: true,
     platform: 'Unbounce', // DRAFT: inferred from the Figma file name ("UB"). Confirm.
     timeline: 'Typically 3–5 days', // DRAFT
@@ -225,6 +233,7 @@ export const caseStudies = [
 
   {
     slug: 'true-gold-republic-website',
+    page: 'p110', // full-page design shown in the viewer (see portfolioPages.js)
     title: 'True Gold Republic: Website',
     short: 'True Gold Republic',
     type: 'Website',
@@ -254,6 +263,7 @@ export const caseStudies = [
   },
   {
     slug: 'direct-bullion-funnel',
+    page: 'p04', // full-page design shown in the viewer (see portfolioPages.js)
     title: 'Direct Bullion: Lead Capture Funnel',
     short: 'Direct Bullion',
     type: 'Lead generation',
@@ -283,6 +293,7 @@ export const caseStudies = [
   },
   {
     slug: 'cobalt-technology-lead-gen',
+    page: 'p74', // full-page design shown in the viewer (see portfolioPages.js)
     title: 'Cobalt Technology: IT Services Lead Gen',
     short: 'Cobalt Technology',
     type: 'Lead generation',
@@ -312,6 +323,7 @@ export const caseStudies = [
   },
   {
     slug: 'michele-capots-coaching-mastermind',
+    page: 'p93', // full-page design shown in the viewer (see portfolioPages.js)
     title: 'Michele Capots: Coaching Mastermind Funnel',
     short: 'Michele Capots',
     type: 'Funnel',

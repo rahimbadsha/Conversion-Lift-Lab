@@ -1,12 +1,19 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X, Sun, Moon } from 'lucide-react';
+import { Menu, X, Sun, Moon, ChevronDown } from 'lucide-react';
 import { useLang } from '../context/LangContext';
 import { useTheme } from '../context/ThemeContext';
 
 const navLinks = [
   { en: 'Services', bn: 'সেবাসমূহ', href: '/services' },
-  { en: 'Case Studies', bn: 'কেস স্টাডি', href: '/case-studies' },
+  {
+    en: 'Work',
+    bn: 'কাজ',
+    children: [
+      { en: 'Case Studies', bn: 'কেস স্টাডি', href: '/case-studies', desc: 'Projects, goals and results', descBn: 'প্রজেক্ট, লক্ষ্য ও ফলাফল' },
+      { en: 'Portfolio', bn: 'পোর্টফোলিও', href: '/portfolio', desc: '110 full-page designs', descBn: '১১০টি সম্পূর্ণ পেজ ডিজাইন' },
+    ],
+  },
   { en: 'Process', bn: 'প্রক্রিয়া', href: '/#process' },
   { en: 'Pricing', bn: 'মূল্য', href: '/#pricing' },
   { en: 'Smart Audit', bn: 'স্মার্ট অডিট', href: '/website-score', lgOnly: true },
@@ -19,6 +26,25 @@ export default function Navbar() {
   const { theme, toggle } = useTheme();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [workOpen, setWorkOpen] = useState(false);
+  const workRef = useRef(null);
+
+  // Close the "Work" dropdown on outside click or Escape.
+  useEffect(() => {
+    if (!workOpen) return undefined;
+    const onDown = e => {
+      if (workRef.current && !workRef.current.contains(e.target)) setWorkOpen(false);
+    };
+    const onKey = e => {
+      if (e.key === 'Escape') setWorkOpen(false);
+    };
+    document.addEventListener('mousedown', onDown);
+    document.addEventListener('keydown', onKey);
+    return () => {
+      document.removeEventListener('mousedown', onDown);
+      document.removeEventListener('keydown', onKey);
+    };
+  }, [workOpen]);
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 24);
@@ -46,7 +72,35 @@ export default function Navbar() {
 
         {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-6">
-          {navLinks.map(l => (
+          {navLinks.map(l => (l.children ? (
+            <div key={l.en} ref={workRef} className="relative" onMouseEnter={() => setWorkOpen(true)} onMouseLeave={() => setWorkOpen(false)}>
+              <button
+                onClick={() => setWorkOpen(v => !v)}
+                aria-expanded={workOpen}
+                aria-haspopup="true"
+                className={`flex items-center gap-1 text-sm whitespace-nowrap transition-colors duration-200 hover:text-indigo-600 ${isDark ? 'text-slate-400 hover:text-white' : 'text-slate-600 hover:text-indigo-600'}`}
+              >
+                {lang === 'bn' ? l.bn : l.en}
+                <ChevronDown size={14} className={`transition-transform duration-200 ${workOpen ? 'rotate-180' : ''}`} />
+              </button>
+              {workOpen && (
+                <div className="absolute left-1/2 -translate-x-1/2 top-full pt-3 w-64">
+                  <div className={`rounded-2xl border p-2 shadow-2xl backdrop-blur-xl ${isDark ? 'bg-[#0b1020]/95 border-white/10' : 'bg-white/95 border-slate-200'}`}>
+                    {l.children.map(c => (
+                      <a
+                        key={c.href}
+                        href={c.href}
+                        className={`block rounded-xl px-4 py-3 transition-colors ${isDark ? 'hover:bg-white/5' : 'hover:bg-indigo-50'}`}
+                      >
+                        <div className={`text-sm font-medium ${isDark ? 'text-white' : 'text-slate-900'}`}>{lang === 'bn' ? c.bn : c.en}</div>
+                        <div className={`text-xs mt-0.5 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>{lang === 'bn' ? c.descBn : c.desc}</div>
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          ) : (
             <a
               key={l.en}
               href={l.href}
@@ -54,7 +108,7 @@ export default function Navbar() {
             >
               {lang === 'bn' ? l.bn : l.en}
             </a>
-          ))}
+          )))}
         </div>
 
         {/* Right actions */}
@@ -105,7 +159,23 @@ export default function Navbar() {
       {/* Mobile menu */}
       {menuOpen && (
         <div className={`md:hidden border-t px-4 py-4 space-y-3 ${isDark ? 'bg-[#050816]/95 border-indigo-500/10' : 'bg-white/95 border-slate-200'}`}>
-          {navLinks.map(l => (
+          {navLinks.map(l => (l.children ? (
+            <div key={l.en}>
+              <div className={`py-1.5 text-xs font-medium uppercase tracking-widest ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>{lang === 'bn' ? l.bn : l.en}</div>
+              <div className={`ml-2 pl-3 border-l space-y-1 ${isDark ? 'border-white/10' : 'border-slate-200'}`}>
+                {l.children.map(c => (
+                  <a
+                    key={c.href}
+                    href={c.href}
+                    onClick={() => setMenuOpen(false)}
+                    className={`block py-1.5 text-sm ${isDark ? 'text-slate-300 hover:text-white' : 'text-slate-600 hover:text-indigo-600'}`}
+                  >
+                    {lang === 'bn' ? c.bn : c.en}
+                  </a>
+                ))}
+              </div>
+            </div>
+          ) : (
             <a
               key={l.en}
               href={l.href}
@@ -114,7 +184,7 @@ export default function Navbar() {
             >
               {lang === 'bn' ? l.bn : l.en}
             </a>
-          ))}
+          )))}
           <a
             href="/contact"
             className="block mt-2 bg-gradient-to-r from-indigo-600 to-purple-600 text-white text-center py-2.5 rounded-full text-sm font-medium"

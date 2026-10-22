@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight, TrendingUp } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 import { caseStudies, featuredFirst, caseTypes } from '../data/caseStudies';
+import { pageThumb } from '../data/portfolioPages';
 
 export default function CaseStudiesIndex() {
   const { theme } = useTheme();
@@ -91,12 +92,12 @@ export default function CaseStudiesIndex() {
             >
               <div className="relative aspect-[4/3] overflow-hidden">
                 <img
-                  src={`${c.image}-thumb.webp`}
+                  src={c.page ? pageThumb(c.page) : `${c.image}-thumb.webp`}
                   alt={`${c.title} landing page design`}
-                  width="720"
-                  height="540"
+                  width="520"
+                  height="322"
                   loading="lazy"
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute top-3 right-3 bg-indigo-600 text-white text-xs px-2.5 py-1 rounded-full font-medium shadow flex items-center gap-1">
                   <TrendingUp size={12} /> {c.result || c.platform}
@@ -116,7 +117,7 @@ export default function CaseStudiesIndex() {
 
         <div className="text-center mt-10">
           <a href="/portfolio" className="inline-flex items-center gap-2 text-indigo-500 hover:text-indigo-400 font-medium">
-            Browse 20 more full-page landing page designs <ArrowRight size={16} />
+            Browse 110 full-page landing page designs <ArrowRight size={16} />
           </a>
         </div>
 

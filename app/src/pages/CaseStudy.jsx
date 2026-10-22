@@ -5,6 +5,8 @@ import { ArrowRight, ArrowLeft, CheckCircle2, Target, Hammer, Lightbulb, Trendin
 import { useTheme } from '../context/ThemeContext';
 import { featuredFirst as caseStudies, bySlug } from '../data/caseStudies';
 import NotFound from './NotFound';
+import PageFrame from '../components/PageFrame';
+import { pageByKey, pageOg } from '../data/portfolioPages';
 
 function Block({ icon: Icon, title, children, isDark, heading }) {
   return (
@@ -40,6 +42,8 @@ export default function CaseStudy() {
   const cs = bySlug(slug);
   if (!cs) return <NotFound />;
 
+  const framed = cs.page ? pageByKey(cs.page) : null;
+  const ogImage = cs.page ? `https://conversionliftlab.com${pageOg(cs.page)}` : `https://conversionliftlab.com${cs.image}.webp`;
   const i = caseStudies.indexOf(cs);
   const prev = caseStudies[(i - 1 + caseStudies.length) % caseStudies.length];
   const next = caseStudies[(i + 1) % caseStudies.length];
@@ -63,7 +67,7 @@ export default function CaseStudy() {
         <title>{`${cs.title} | Case Study | ConversionLiftLab`}</title>
         <meta name="description" content={cs.result ? `${cs.summary} Reported result: ${cs.result}.` : cs.summary} />
         <link rel="canonical" href={url} />
-        <meta property="og:image" content={`https://conversionliftlab.com${cs.image}.webp`} />
+        <meta property="og:image" content={ogImage} />
         <script type="application/ld+json">{JSON.stringify({
           '@context': 'https://schema.org',
           '@graph': [
@@ -75,7 +79,7 @@ export default function CaseStudy() {
               description: cs.summary,
               isPartOf: { '@id': 'https://conversionliftlab.com/#website' },
               about: { '@id': 'https://conversionliftlab.com/#organization' },
-              primaryImageOfPage: `https://conversionliftlab.com${cs.image}.webp`,
+              primaryImageOfPage: ogImage,
             },
             {
               '@type': 'BreadcrumbList',
@@ -102,15 +106,21 @@ export default function CaseStudy() {
           <p className={`text-lg max-w-3xl ${muted}`}>{cs.summary}</p>
         </motion.div>
 
-        <div className="glass rounded-3xl p-3 sm:p-4 mb-8">
-          <img
-            src={`${cs.image}.webp`}
-            alt={`${cs.title} landing page design`}
-            width="1600"
-            height="1200"
-            fetchPriority="high"
-            className="w-full h-auto rounded-2xl"
-          />
+        <div className="mb-8">
+          {framed ? (
+            <PageFrame item={framed} title={cs.title} subtitle="Full-page design · scroll to view the whole page" priority />
+          ) : (
+            <div className="glass rounded-3xl p-3 sm:p-4">
+              <img
+                src={`${cs.image}.webp`}
+                alt={`${cs.title} landing page design`}
+                width="1600"
+                height="1200"
+                fetchPriority="high"
+                className="w-full h-auto rounded-2xl"
+              />
+            </div>
+          )}
         </div>
 
         <div className="grid md:grid-cols-3 gap-6 mb-6">
