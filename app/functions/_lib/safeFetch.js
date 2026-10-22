@@ -36,7 +36,7 @@ export function normalizeUrl(input) {
   return url;
 }
 
-function assertAllowed(url) {
+export function assertAllowed(url) {
   if (url.protocol !== 'http:' && url.protocol !== 'https:') {
     throw new HttpError(400, 'Only http and https URLs are supported.');
   }
@@ -53,6 +53,7 @@ export async function safeFetch(input, { maxBytes = 1_500_000, timeoutMs = 9000,
   for (let hop = 0; hop < 5; hop++) {
     assertAllowed(url);
     let res;
+    const hopStart = Date.now();
     try {
       res = await fetch(url.toString(), {
         redirect: 'manual',
@@ -103,8 +104,22 @@ export async function safeFetch(input, { maxBytes = 1_500_000, timeoutMs = 9000,
       buf.set(c, off);
       off += c.byteLength;
     }
+    const h = name => res.headers.get(name) || '';
     return {
       finalUrl: url.toString(),
+      status: res.status,
+      redirects: hop,
+      ttfbMs: Date.now() - hopStart,
+      headers: {
+        encoding: h('content-encoding'),
+        hsts: h('strict-transport-security'),
+        csp: h('content-security-policy'),
+        xcto: h('x-content-type-options'),
+        xfo: h('x-frame-options'),
+        referrer: h('referrer-policy'),
+        server: h('server'),
+        cache: h('cache-control'),
+      },
       html: new TextDecoder('utf-8').decode(buf),
       bytes: size,
       ms: Date.now() - started,
