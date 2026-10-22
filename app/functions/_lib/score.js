@@ -30,7 +30,61 @@ export function gradeFor(score) {
   return 'F';
 }
 
-export function scorePage(m) {
+// Technical health: real measurements taken while scanning (speed, headers, crawl files, image weight).
+export function scoreTechnical(t) {
+  const f = t.fetch;
+  const hdr = f.headers || {};
+  const secCount = [hdr.hsts, hdr.csp, hdr.xcto, hdr.xfo, hdr.referrer].filter(Boolean).length;
+  const heavy = (t.images || []).filter(i => i.bytes > 300_000);
+  const crawl = t.crawl || {};
+  const crawlPts = crawl.blocksAll ? 0 : crawl.robotsOk && crawl.sitemapOk ? 3 : crawl.robotsOk || crawl.sitemapOk ? 1 : 0;
+
+  return cat('Technical health', [
+    mk(
+      'Secure connection (HTTPS)',
+      /^https:/i.test(f.finalUrl) ? 3 : 0,
+      3,
+      /^https:/i.test(f.finalUrl) ? 'Page is served over HTTPS.' : 'Page is not served over HTTPS.',
+      'Serve every page over HTTPS. Browsers warn visitors about insecure pages, which kills trust and conversions.'
+    ),
+    mk(
+      'Fast server response',
+      f.ttfbMs <= 600 ? 3 : f.ttfbMs <= 1500 ? 1 : 0,
+      3,
+      `Server answered in ${f.ttfbMs} ms (measured from our server, so your visitors may see slightly different times).`,
+      'Slow servers lose visitors before the page even starts. Use caching or a CDN, and a faster host if needed.'
+    ),
+    mk(
+      'Security headers',
+      secCount >= 3 ? 2 : secCount >= 1 ? 1 : 0,
+      2,
+      `${secCount} of 5 common security headers found.`,
+      'Add HSTS, Content-Security-Policy, X-Content-Type-Options and Referrer-Policy headers to protect visitors and show professionalism.'
+    ),
+    mk(
+      'Crawlable by search engines',
+      crawlPts,
+      3,
+      crawl.blocksAll
+        ? 'robots.txt appears to block all crawlers.'
+        : `robots.txt: ${crawl.robotsOk ? 'found' : 'not found'} · sitemap: ${crawl.sitemapOk ? 'found' : 'not found'}.`,
+      crawl.blocksAll
+        ? 'Your robots.txt blocks search engines. Remove the blanket Disallow unless this is intentional.'
+        : 'Add a robots.txt and an XML sitemap so search engines can find and index your pages.'
+    ),
+    mk(
+      'Image weight',
+      (t.images || []).length === 0 ? 2 : heavy.length === 0 ? 2 : heavy.length <= 2 ? 1 : 0,
+      2,
+      (t.images || []).length === 0
+        ? 'No images could be measured.'
+        : `${t.images.length} images measured, ${heavy.length} over 300 KB.`,
+      'Compress large images (use WebP/AVIF and proper sizes). Heavy images are the most common cause of slow mobile pages.'
+    ),
+  ]);
+}
+
+export function scorePage(m, tech = null) {
   const corpus = [...m.paragraphs, ...m.listItems, ...m.quotes, ...m.h2, ...m.h3, ...m.h1].join(' ').toLowerCase();
   const h1 = m.h1[0] || '';
   const labels = [...m.buttons, ...m.links.map(l => l.text)].map(t => t.trim()).filter(t => t && t.length <= 40);
@@ -205,7 +259,7 @@ export function scorePage(m) {
   const sizedOrLazy = imgs.length ? imgs.filter(i => i.sized || i.lazy).length / imgs.length : 1;
   const kb = Math.round(m.htmlBytes / 1024);
 
-  const tech = cat('Mobile & speed', [
+  const mobile = cat('Mobile & speed', [
     mk(
       'Mobile viewport is set',
       /width\s*=\s*device-width/i.test(m.viewport) ? 5 : 0,
@@ -243,7 +297,8 @@ export function scorePage(m) {
     ),
   ]);
 
-  const categories = [message, cta, trust, friction, tech];
+  const categories = [message, cta, trust, friction, mobile];
+  if (tech) categories.push(scoreTechnical(tech));
   const points = categories.reduce((n, c) => n + c.points, 0);
   const max = categories.reduce((n, c) => n + c.max, 0);
   const score = Math.round((points / max) * 100);

@@ -1,16 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { ArrowRight, CheckCircle2, AlertTriangle, XCircle, Search } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
-
-const LOADING_STEPS = [
-  'Fetching your page…',
-  'Reading headline, CTAs and forms…',
-  'Checking trust and proof signals…',
-  'Measuring friction and mobile basics…',
-  'Calculating your score…',
-];
 
 const GRADE_STYLE = {
   'A+': 'from-emerald-400 to-green-500',
@@ -27,20 +19,18 @@ const STATUS_ICON = {
   fail: <XCircle size={16} className="text-red-500 shrink-0 mt-0.5" />,
 };
 
+const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
+
 export default function WebsiteScore() {
   const { theme } = useTheme();
   const isDark = theme === 'dark';
   const [url, setUrl] = useState('');
   const [phase, setPhase] = useState('idle'); // idle | loading | done | error
-  const [step, setStep] = useState(0);
+  const [steps, setSteps] = useState([]);
+  const [progress, setProgress] = useState(0);
+  const [target, setTarget] = useState('');
   const [error, setError] = useState('');
   const [result, setResult] = useState(null);
-
-  useEffect(() => {
-    if (phase !== 'loading') return undefined;
-    const id = setInterval(() => setStep(s => Math.min(s + 1, LOADING_STEPS.length - 1)), 1600);
-    return () => clearInterval(id);
-  }, [phase]);
 
   const submit = async e => {
     e.preventDefault();
@@ -50,17 +40,75 @@ export default function WebsiteScore() {
       return;
     }
     setPhase('loading');
-    setStep(0);
+    setSteps([]);
+    setProgress(4);
     setError('');
+    setResult(null);
+    setTarget(url.trim().replace(/^https?:\/\//i, '').replace(/\/.*$/, ''));
+
     try {
-      const res = await fetch('/api/analyze', {
+      const res = await fetch('/api/analyze?stream=1', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ url: url.trim() }),
       });
-      const data = await res.json().catch(() => ({}));
-      if (!res.ok) throw new Error(data.error || 'Something went wrong. Please try again.');
-      setResult(data);
+      if (!res.ok || !res.body) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data.error || 'Something went wrong. Please try again.');
+      }
+
+      // Findings arrive as the server completes them. Each one is revealed with a short pause so
+      // they are readable; the content itself is exactly what the server measured.
+      const queue = [];
+      let streamEnded = false;
+      let finalData = null;
+      let streamError = '';
+
+      const readAll = async () => {
+        const reader = res.body.getReader();
+        const decoder = new TextDecoder();
+        let buffer = '';
+        for (;;) {
+          const { done, value } = await reader.read();
+          if (done) break;
+          buffer += decoder.decode(value, { stream: true });
+          const lines = buffer.split('\n');
+          buffer = lines.pop();
+          for (const line of lines) {
+            if (!line.trim()) continue;
+            let evt;
+            try {
+              evt = JSON.parse(line);
+            } catch {
+              continue;
+            }
+            if (evt.type === 'step') queue.push(evt);
+            else if (evt.type === 'result') finalData = evt.data;
+            else if (evt.type === 'error') streamError = evt.error;
+          }
+        }
+        streamEnded = true;
+      };
+
+      const reveal = async () => {
+        while (!(streamEnded && queue.length === 0)) {
+          if (queue.length) {
+            const evt = queue.shift();
+            setSteps(prev => [...prev, evt]);
+            setProgress(evt.progress);
+            await wait(420);
+          } else {
+            await wait(80);
+          }
+        }
+      };
+
+      await Promise.all([readAll(), reveal()]);
+      if (streamError) throw new Error(streamError);
+      if (!finalData) throw new Error('The scan did not finish. Please try again.');
+      setProgress(100);
+      await wait(350);
+      setResult(finalData);
       setPhase('done');
     } catch (err) {
       setError(err.message || 'Something went wrong. Please try again.');
@@ -70,13 +118,13 @@ export default function WebsiteScore() {
 
   const muted = isDark ? 'text-slate-400' : 'text-slate-600';
   const heading = isDark ? 'text-white' : 'text-slate-900';
+  const busy = phase === 'loading';
 
   return (
     <main className={`min-h-screen pt-24 pb-20 ${isDark ? 'bg-[#050816]' : 'bg-slate-50'}`}>
       <Helmet>
         <title>Free Landing Page Score | ConversionLiftLab</title>
-        <meta name="description" content="Paste your page URL and get an instant conversion-focused score: message clarity, calls to action, trust, friction and mobile basics." />
-        
+        <meta name="description" content="Paste your page URL and get an instant conversion-focused score: message clarity, calls to action, trust, friction, mobile basics and technical health." />
         <link rel="canonical" href="https://conversionliftlab.com/website-score" />
       </Helmet>
 
@@ -86,7 +134,7 @@ export default function WebsiteScore() {
             Free Landing Page <span className="text-gradient">Score</span>
           </h1>
           <p className={`max-w-xl mx-auto ${muted}`}>
-            Paste your page address. You get a conversion-focused grade in about 10 seconds, plus the three fixes worth making first.
+            Paste your page address. We inspect the live page, measure real speed and technical signals, and grade it for conversions, with the three fixes worth making first.
           </p>
         </motion.div>
 
@@ -101,22 +149,52 @@ export default function WebsiteScore() {
               onChange={e => setUrl(e.target.value)}
               placeholder="yourwebsite.com"
               aria-label="Page URL"
+              disabled={busy}
               className={`w-full bg-transparent py-3 outline-none ${heading}`}
             />
           </div>
-          <button type="submit" disabled={phase === 'loading'} className="btn-primary justify-center disabled:opacity-60">
-            {phase === 'loading' ? 'Scanning…' : 'Score my page'}
-            {phase !== 'loading' && <ArrowRight size={16} />}
+          <button type="submit" disabled={busy} className="btn-primary justify-center disabled:opacity-60">
+            {busy ? 'Scanning…' : 'Score my page'}
+            {!busy && <ArrowRight size={16} />}
           </button>
         </form>
         <p className={`text-xs text-center mb-10 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
           Free · No signup · We only read the public page you enter
         </p>
 
-        {phase === 'loading' && (
-          <div className="glass rounded-2xl p-8 text-center" role="status" aria-live="polite">
-            <span className="inline-block w-6 h-6 border-2 border-indigo-500/30 border-t-indigo-500 rounded-full animate-spin mb-4" />
-            <p className={heading}>{LOADING_STEPS[step]}</p>
+        {busy && (
+          <div className="glass rounded-2xl p-6 sm:p-8" aria-live="polite">
+            <div className="flex items-center justify-between mb-2 text-sm">
+              <span className={heading}>Inspecting <span className="font-semibold">{target}</span></span>
+              <span className={`tabular-nums ${muted}`}>{progress}%</span>
+            </div>
+            <div
+              role="progressbar"
+              aria-valuemin={0}
+              aria-valuemax={100}
+              aria-valuenow={progress}
+              className={`h-2.5 rounded-full overflow-hidden mb-6 ${isDark ? 'bg-white/10' : 'bg-slate-200'}`}
+            >
+              <div
+                className="h-full rounded-full bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-400 transition-all duration-500 ease-out"
+                style={{ width: `${progress}%` }}
+              />
+            </div>
+            <ul className="space-y-3">
+              {steps.map(s => (
+                <motion.li key={s.id} initial={{ opacity: 0, x: -8 }} animate={{ opacity: 1, x: 0 }} className="flex gap-3">
+                  <CheckCircle2 size={18} className="text-emerald-500 shrink-0 mt-0.5" />
+                  <div className="min-w-0">
+                    <div className={`text-sm font-medium ${heading}`}>{s.label}</div>
+                    <div className={`text-xs ${muted} break-words`}>{s.detail}</div>
+                  </div>
+                </motion.li>
+              ))}
+              <li className="flex gap-3 items-center">
+                <span className="inline-block w-[18px] h-[18px] border-2 border-indigo-500/30 border-t-indigo-500 rounded-full animate-spin shrink-0" />
+                <span className={`text-sm ${muted}`}>Working…</span>
+              </li>
+            </ul>
           </div>
         )}
 
@@ -178,7 +256,7 @@ export default function WebsiteScore() {
                         {STATUS_ICON[ch.status]}
                         <div className="min-w-0">
                           <div className={`text-sm ${heading}`}>{ch.label}</div>
-                          <div className={`text-xs ${isDark ? 'text-slate-500' : 'text-slate-500'} break-words`}>{ch.detail}</div>
+                          <div className="text-xs text-slate-500 break-words">{ch.detail}</div>
                           {ch.tip && <div className={`text-xs mt-1 ${muted}`}>{ch.tip}</div>}
                         </div>
                       </li>
@@ -191,7 +269,7 @@ export default function WebsiteScore() {
             <div className="glass rounded-3xl p-8 text-center">
               <h2 className={`text-2xl font-bold mb-2 ${heading}`}>Want a human to review it?</h2>
               <p className={`mb-6 max-w-md mx-auto ${muted}`}>
-                This is a quick automated scan of your page&apos;s HTML. For a real teardown of your page, I&apos;ll tell you what is costing you conversions.
+                This is a quick automated scan of your page&apos;s HTML and technical signals. For a real teardown of your page, I&apos;ll tell you what is costing you conversions.
               </p>
               <a href="/contact" className="btn-primary inline-flex">
                 Get a free landing page teardown <ArrowRight size={16} />
