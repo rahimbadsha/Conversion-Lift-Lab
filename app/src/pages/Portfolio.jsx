@@ -11,7 +11,7 @@ export default function Portfolio() {
   const isDark = theme === 'dark';
   const [cat, setCat] = useState('All');
   const [index, setIndex] = useState(0);
-  const list = cat === 'All' ? portfolioPages : portfolioPages.filter(p => p.cat === cat);
+  const list = cat === 'All' ? portfolioPages : portfolioPages.filter(p => p.cat === cat || (p.also && p.also.includes(cat)));
   const heading = isDark ? 'text-white' : 'text-slate-900';
   const muted = isDark ? 'text-slate-400' : 'text-slate-600';
 
