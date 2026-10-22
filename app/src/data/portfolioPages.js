@@ -3,10 +3,10 @@
 // Very tall pages are sliced into stacked parts: <key>-1.webp, <key>-2.webp ... (`parts` lists each part's height).
 // Labels describe what is visible (industry + page type). They deliberately do not name brands.
 
-export const pageCategories = ["All", "E-commerce", "Lead generation", "SaaS", "Local service", "Health & wellness", "Course & coaching", "Advertorial", "Website"];
+export const pageCategories = ["All", "E-commerce", "Lead generation", "SaaS", "Local service", "Health & wellness", "Course & coaching", "Sales page", "Advertorial", "Website"];
 
 export const portfolioPages = [
-  { key: 'p12', h: 7964, cat: 'E-commerce', label: "Ethical jewellery: brand landing page" },
+  { key: 'p12', h: 7964, cat: 'Sales page', label: "Ethical jewellery: brand landing page" },
   { key: 'p07', h: 6209, cat: 'Local service', label: "Photo booth rental: service landing page" },
   { key: 'p37', h: 3110, cat: 'Local service', label: "Lawn care: quote request page" },
   { key: 'p09', h: 3016, cat: 'Lead generation', label: "Private-label clothing manufacturing: B2B lead page" },
@@ -16,7 +16,7 @@ export const portfolioPages = [
   { key: 'p47', h: 8311, cat: 'E-commerce', label: "Pink Himalayan salt: product page" },
   { key: 'p49', h: 6854, cat: 'E-commerce', label: "Prize competition: ticket sales page" },
   { key: 'p54', h: 4504, cat: 'Health & wellness', label: "Back pain relief program: free video download page (variant)" },
-  { key: 'p57', h: 20374, cat: 'Lead generation', label: "Investment philosophy: video sales page", parts: [6792, 6792, 6790] },
+  { key: 'p57', h: 20374, cat: 'Sales page', label: "Investment philosophy: video sales page", parts: [6792, 6792, 6790] },
   { key: 'p58', h: 19490, cat: 'Course & coaching', label: "Soccer training program: masterclass sign-up page", parts: [6497, 6497, 6496] },
   { key: 'p59', h: 3861, cat: 'SaaS', label: "Sports recruiting platform: demo request page (variant)" },
   { key: 'p61', h: 5467, cat: 'E-commerce', label: "Home hydroponic device: product page" },
@@ -63,7 +63,7 @@ export const portfolioPages = [
   { key: 'p55', h: 7912, cat: 'Lead generation', label: "Self-storage investing: lead page" },
   { key: 'p56', h: 5210, cat: 'Lead generation', label: "E-commerce growth agency: lead page" },
   { key: 'p60', h: 6431, cat: 'Lead generation', label: "Property management: free appraisal page" },
-  { key: 'p62', h: 9146, cat: 'E-commerce', label: "Hydroponic grow pad: offer page" },
+  { key: 'p62', h: 9146, cat: 'Sales page', label: "Hydroponic grow pad: offer page" },
   { key: 'p63', h: 4586, cat: 'Health & wellness', label: "Long-term illness care program: lead page" },
   { key: 'p64', h: 3513, cat: 'SaaS', label: "Chargeback protection software: SaaS landing page (variant)" },
   { key: 'p65', h: 2997, cat: 'SaaS', label: "Shipping and packing software: demo request page" },
@@ -84,15 +84,15 @@ export const portfolioPages = [
   { key: 'p83', h: 5007, cat: 'Website', label: "Storytelling agency: homepage" },
   { key: 'p84', h: 8130, cat: 'Health & wellness', label: "Natural stress relief gummies: offer page" },
   { key: 'p85', h: 3844, cat: 'Lead generation', label: "Data center decommissioning: consultation page" },
-  { key: 'p86', h: 24025, cat: 'Website', label: "IT asset disposition: long-form guide page", parts: [6007, 6007, 6007, 6004] },
-  { key: 'p87', h: 4046, cat: 'Website', label: "IT compliance reporting: service page" },
+  { key: 'p86', h: 24025, cat: 'Advertorial', label: "IT asset disposition: long-form guide page", parts: [6007, 6007, 6007, 6004] },
+  { key: 'p87', h: 4046, cat: 'Advertorial', label: "IT compliance reporting: service page" },
   { key: 'p88', h: 705, cat: 'Lead generation', label: "Viral content library: membership sign-up page" },
   { key: 'p89', h: 4010, cat: 'Local service', label: "Architectural 3D rendering: estimate request page" },
-  { key: 'p90', h: 11491, cat: 'Website', label: "Electronics recycling: service page" },
-  { key: 'p91', h: 7390, cat: 'Website', label: "Data destruction: service page" },
+  { key: 'p90', h: 11491, cat: 'Advertorial', label: "Electronics recycling: service page" },
+  { key: 'p91', h: 7390, cat: 'Advertorial', label: "Data destruction: service page" },
   { key: 'p92', h: 17364, cat: 'Advertorial', label: "Mattress covers for better sleep: advertorial", parts: [5788, 5788, 5788] },
-  { key: 'p93', h: 3008, cat: 'Course & coaching', label: "Coaching mastermind: enrolment page" },
-  { key: 'p94', h: 5278, cat: 'E-commerce', label: "Nursing exam prep bundle: sales page" },
+  { key: 'p93', h: 3008, cat: 'Sales page', label: "Coaching mastermind: enrolment page" },
+  { key: 'p94', h: 5278, cat: 'Sales page', label: "Nursing exam prep bundle: sales page" },
   { key: 'p95', h: 5135, cat: 'E-commerce', label: "Nursing exam prep bundle: sales page (variant)" },
   { key: 'p96', h: 6049, cat: 'E-commerce', label: "Coffee machine cleaner: product page" },
   { key: 'p99', h: 7964, cat: 'E-commerce', label: "Ethical jewellery: brand landing page (variant)" },
