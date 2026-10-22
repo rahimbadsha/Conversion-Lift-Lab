@@ -445,7 +445,7 @@ export default function WebsiteScore() {
                   </li>
                 ))}
               </ul>
-              <a href={contactHref} className="btn-primary inline-flex">
+              <a href={contactHref} target="_blank" rel="noopener noreferrer" className="btn-primary inline-flex">
                 {low ? 'Fix my page: get my free CRO audit' : 'Get my free CRO audit'} <ArrowRight size={16} />
               </a>
             </div>
@@ -540,7 +540,7 @@ export default function WebsiteScore() {
               <p className="mb-6 max-w-lg mx-auto text-white/85">
                 This was a quick automated scan. I&apos;ll personally review your page and tell you exactly what is costing you conversions, with no pushy sales and no obligation.
               </p>
-              <a href={contactHref} className="inline-flex items-center gap-2 bg-white text-slate-900 font-semibold px-8 py-4 rounded-full hover:scale-105 active:scale-95 transition-transform shadow-xl">
+              <a href={contactHref} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-white text-slate-900 font-semibold px-8 py-4 rounded-full hover:scale-105 active:scale-95 transition-transform shadow-xl">
                 Get my free CRO audit <ArrowRight size={18} />
               </a>
               <p className="text-xs mt-5 text-white/75">1050+ pages &amp; funnels built · 358+ reviews · $200K+ earned · 100% Job Success · replies within 2 hours</p>

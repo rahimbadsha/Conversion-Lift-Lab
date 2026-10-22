@@ -9,6 +9,8 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import Services from './pages/Services';
 import WebsiteScore from './pages/WebsiteScore';
+import CaseStudiesIndex from './pages/CaseStudiesIndex';
+import CaseStudy from './pages/CaseStudy';
 import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
 import NotFound from './pages/NotFound';
@@ -26,6 +28,8 @@ function App() {
           <Route path="/services" element={<Services />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/website-score" element={<WebsiteScore />} />
+          <Route path="/case-studies" element={<CaseStudiesIndex />} />
+          <Route path="/case-studies/:slug" element={<CaseStudy />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="*" element={<NotFound />} />

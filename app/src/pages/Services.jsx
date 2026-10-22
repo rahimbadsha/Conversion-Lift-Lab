@@ -259,7 +259,7 @@ export default function Services() {
         <div className="space-y-6">
           {coreServices.map((s, i) => {
             const Icon = s.icon;
-            const proofHref = s.id === 'cro' ? '/contact' : '/#case-studies';
+            const proofHref = s.id === 'cro' ? '/contact' : '/case-studies';
             return (
               <motion.div
                 key={s.id}
@@ -420,7 +420,7 @@ export default function Services() {
           </div>
 
           <div className="text-center">
-            <a href="/#case-studies" className="inline-flex items-center gap-2 text-indigo-600 hover:text-indigo-700 font-medium text-sm">
+            <a href="/case-studies" className="inline-flex items-center gap-2 text-indigo-600 hover:text-indigo-700 font-medium text-sm">
               {t('See full portfolio', 'সম্পূর্ণ পোর্টফোলিও দেখুন')}<ArrowRight size={15} />
             </a>
             <span className={`mx-3 text-sm ${isDark ? 'text-slate-600' : 'text-slate-300'}`}>·</span>

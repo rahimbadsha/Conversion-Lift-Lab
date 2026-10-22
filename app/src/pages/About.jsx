@@ -72,7 +72,7 @@ export default function About() {
               <div className="relative">
                 <div className="absolute -inset-3 rounded-3xl bg-gradient-to-br from-indigo-500/30 to-purple-500/30 blur-2xl" />
                 <div className="relative w-64 h-72 sm:w-72 sm:h-80 rounded-3xl overflow-hidden border border-indigo-500/20 shadow-2xl">
-                  <img src="/images/rahim.png" alt="Rahim Badsha — CRO Landing Page Expert" width="1024" height="1024" fetchPriority="high" className="w-full h-full object-cover object-top" />
+                  <img src="/images/rahim.webp" alt="Rahim Badsha — CRO Landing Page Expert" width="1024" height="1024" fetchPriority="high" className="w-full h-full object-cover object-top" />
                   <div className="absolute bottom-3 left-3 right-3 glass rounded-xl px-3 py-2 flex items-center gap-2">
                     <Award size={16} className="text-indigo-600 shrink-0" />
                     <div>

@@ -7,7 +7,7 @@
 // per URL without requiring JS execution, while still hydrating normally for
 // real visitors.
 import { execFileSync, spawn } from 'node:child_process';
-import { writeFileSync } from 'node:fs';
+import { writeFileSync, mkdirSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -15,7 +15,12 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = join(__dirname, '..');
 const dist = join(root, 'dist');
 const port = 4713;
-const routes = ['/', '/about', '/services', '/website-score', '/privacy', '/terms', '/contact'];
+import { caseStudies } from '../src/data/caseStudies.js';
+
+const routes = [
+  '/', '/about', '/services', '/website-score', '/privacy', '/terms', '/contact', '/case-studies',
+  ...caseStudies.map(c => `/case-studies/${c.slug}`),
+];
 
 const CHROME = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
 
@@ -93,6 +98,7 @@ async function main() {
       // no-trailing-slash URL directly instead of 308-redirecting /about -> /about/, which
       // would break non-redirect-following bots and conflict with our canonical tags.
       const outFile = route === '/' ? join(dist, 'index.html') : join(dist, `${route.slice(1)}.html`);
+      mkdirSync(dirname(outFile), { recursive: true });
       writeFileSync(outFile, `<!doctype html>\n${html}`);
       console.log(`[prerender] wrote ${outFile} (${(html.length / 1024).toFixed(1)} kB)`);
     }
