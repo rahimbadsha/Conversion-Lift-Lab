@@ -1,12 +1,13 @@
 import { createContext, useContext, useState, useEffect } from 'react';
+import { readStored, writeStored } from '../lib/storage';
 
 const ThemeContext = createContext();
 
 export function ThemeProvider({ children }) {
-  const [theme, setTheme] = useState(() => localStorage.getItem('cll-theme') || 'dark');
+  const [theme, setTheme] = useState(() => readStored('cll-theme', 'dark'));
 
   useEffect(() => {
-    localStorage.setItem('cll-theme', theme);
+    writeStored('cll-theme', theme);
     if (theme === 'dark') {
       document.documentElement.classList.add('dark');
     } else {

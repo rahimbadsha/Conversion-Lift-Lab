@@ -1,12 +1,13 @@
 import { createContext, useContext, useState, useEffect } from 'react';
+import { readStored, writeStored } from '../lib/storage';
 
 const LangContext = createContext();
 
 export function LangProvider({ children }) {
-  const [lang, setLang] = useState(() => localStorage.getItem('cll-lang') || 'en');
+  const [lang, setLang] = useState(() => readStored('cll-lang', 'en'));
 
   useEffect(() => {
-    localStorage.setItem('cll-lang', lang);
+    writeStored('cll-lang', lang);
     document.documentElement.lang = lang === 'bn' ? 'bn' : 'en';
     document.body.classList.toggle('lang-bn', lang === 'bn');
   }, [lang]);

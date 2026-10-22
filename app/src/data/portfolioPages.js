@@ -119,3 +119,6 @@ export const pageParts = item =>
   item.parts
     ? item.parts.map((h, i) => ({ src: `/images/pages/${item.key}-${i + 1}.webp`, h }))
     : [{ src: pageSrc(item.key), h: item.h }];
+
+export const inCategory = (page, cat) => cat === 'All' || page.cat === cat || (page.also || []).includes(cat);
+export const categoryCount = cat => portfolioPages.filter(p => inCategory(p, cat)).length;

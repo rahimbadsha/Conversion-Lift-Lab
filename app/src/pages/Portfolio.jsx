@@ -4,14 +4,14 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 import PageGallery from '../components/PageGallery';
-import { portfolioPages, pageCategories, pageSrc, pageThumb } from '../data/portfolioPages';
+import { portfolioPages, pageCategories, pageSrc, pageThumb, inCategory, categoryCount } from '../data/portfolioPages';
 
 export default function Portfolio() {
   const { theme } = useTheme();
   const isDark = theme === 'dark';
   const [cat, setCat] = useState('All');
   const [index, setIndex] = useState(0);
-  const list = cat === 'All' ? portfolioPages : portfolioPages.filter(p => p.cat === cat || (p.also && p.also.includes(cat)));
+  const list = portfolioPages.filter(p => inCategory(p, cat));
   const heading = isDark ? 'text-white' : 'text-slate-900';
   const muted = isDark ? 'text-slate-400' : 'text-slate-600';
 
@@ -78,7 +78,7 @@ export default function Portfolio() {
                   : isDark ? 'border-white/10 text-slate-300 hover:border-indigo-500/50' : 'border-slate-200 text-slate-600 hover:border-indigo-400 bg-white'
               }`}
             >
-              {c}
+              {c} <span className="opacity-70">({categoryCount(c)})</span>
             </button>
           ))}
         </div>

@@ -30,7 +30,7 @@
     <meta name="twitter:image" content="https://conversionliftlab.com/images/og-cover.png" />
 
     <!-- Favicon -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%236366f1'/><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='14' fill='white'>CL</text></svg>" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
@@ -139,7 +139,8 @@
     <script>
       // Runs before paint so dark mode (the default) applies immediately — no flash of light.
       (function () {
-        var t = localStorage.getItem('cll-theme') || 'dark';
+        var t = 'dark';
+        try { t = localStorage.getItem('cll-theme') || 'dark'; } catch (e) {}
         if (t === 'dark') document.documentElement.classList.add('dark');
       })();
     </script>
