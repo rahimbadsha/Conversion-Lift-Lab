@@ -45,7 +45,7 @@ export default function Footer() {
           <div>
             <h4 className={`font-medium mb-4 text-sm ${isDark ? 'text-white' : 'text-slate-900'}`}>{t('Quick Links', 'দ্রুত লিঙ্ক')}</h4>
             <ul className={`space-y-2 text-sm ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
-              {[['/services', t('Services', 'সেবাসমূহ')], ['/#case-studies', t('Case Studies', 'কেস স্টাডি')], ['/#process', t('Process', 'প্রক্রিয়া')], ['/#pricing', t('Pricing', 'মূল্য')], ['/about', t('About', 'সম্পর্কে')], ['/contact', t('Contact', 'যোগাযোগ')]].map(([href, label]) => (
+              {[['/services', t('Services', 'সেবাসমূহ')], ['/#case-studies', t('Case Studies', 'কেস স্টাডি')], ['/#process', t('Process', 'প্রক্রিয়া')], ['/#pricing', t('Pricing', 'মূল্য')], ['/website-score', t('Free Score', 'ফ্রি স্কোর')], ['/about', t('About', 'সম্পর্কে')], ['/contact', t('Contact', 'যোগাযোগ')]].map(([href, label]) => (
                 <li key={href}><a href={href} className="hover:text-indigo-600 transition-colors">{label}</a></li>
               ))}
             </ul>
@@ -72,7 +72,11 @@ export default function Footer() {
 
         <div className={`border-t pt-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs ${isDark ? 'border-indigo-500/10 text-slate-500' : 'border-slate-200 text-slate-400'}`}>
           <p>© {new Date().getFullYear()} ConversionLiftLab. {t('All rights reserved.', 'সর্বস্বত্ব সংরক্ষিত।')}</p>
-          <p>{t('Built with precision. Optimized for conversions.', 'নির্ভুলভাবে তৈরি। রূপান্তরের জন্য অপ্টিমাইজড।')}</p>
+          <p className="flex items-center gap-3">
+            <a href="/privacy" className="hover:text-indigo-500 transition-colors">{t('Privacy Policy', 'গোপনীয়তা নীতি')}</a>
+            <span aria-hidden="true">·</span>
+            <a href="/terms" className="hover:text-indigo-500 transition-colors">{t('Terms & Disclaimer', 'শর্তাবলী ও দাবিত্যাগ')}</a>
+          </p>
         </div>
       </div>
     </footer>

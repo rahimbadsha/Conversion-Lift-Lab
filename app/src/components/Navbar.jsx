@@ -9,6 +9,7 @@ const navLinks = [
   { en: 'Case Studies', bn: 'কেস স্টাডি', href: '/#case-studies' },
   { en: 'Process', bn: 'প্রক্রিয়া', href: '/#process' },
   { en: 'Pricing', bn: 'মূল্য', href: '/#pricing' },
+  { en: 'Free Score', bn: 'ফ্রি স্কোর', href: '/website-score', lgOnly: true },
   { en: 'About', bn: 'সম্পর্কে', href: '/about' },
   { en: 'Contact', bn: 'যোগাযোগ', href: '/contact' },
 ];
@@ -49,7 +50,7 @@ export default function Navbar() {
             <a
               key={l.en}
               href={l.href}
-              className={`text-sm transition-colors duration-200 hover:text-indigo-600 ${isDark ? 'text-slate-400 hover:text-white' : 'text-slate-600 hover:text-indigo-600'}`}
+              className={`${l.lgOnly ? 'hidden lg:inline' : ''} text-sm whitespace-nowrap transition-colors duration-200 hover:text-indigo-600 ${isDark ? 'text-slate-400 hover:text-white' : 'text-slate-600 hover:text-indigo-600'}`}
             >
               {lang === 'bn' ? l.bn : l.en}
             </a>
