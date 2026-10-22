@@ -3,13 +3,13 @@ import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { ArrowRight, TrendingUp } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
-import { caseStudies, caseTypes } from '../data/caseStudies';
+import { caseStudies, featuredFirst, caseTypes } from '../data/caseStudies';
 
 export default function CaseStudiesIndex() {
   const { theme } = useTheme();
   const isDark = theme === 'dark';
   const [filter, setFilter] = useState('All');
-  const list = filter === 'All' ? caseStudies : caseStudies.filter(c => c.type === filter);
+  const list = filter === 'All' ? featuredFirst : featuredFirst.filter(c => c.type === filter);
   const heading = isDark ? 'text-white' : 'text-slate-900';
   const muted = isDark ? 'text-slate-400' : 'text-slate-600';
 
@@ -99,11 +99,11 @@ export default function CaseStudiesIndex() {
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute top-3 right-3 bg-indigo-600 text-white text-xs px-2.5 py-1 rounded-full font-medium shadow flex items-center gap-1">
-                  <TrendingUp size={12} /> {c.result}
+                  <TrendingUp size={12} /> {c.result || c.platform}
                 </div>
               </div>
               <div className="p-5">
-                <span className="text-indigo-500 text-xs font-medium">{c.type} · {c.industry}</span>
+                <span className="text-indigo-500 text-xs font-medium">{c.type} · {c.industry}{c.platform && c.result ? ` · ${c.platform}` : ''}</span>
                 <h2 className={`font-semibold text-lg mt-1 mb-2 leading-snug ${heading}`}>{c.title}</h2>
                 <p className={`text-sm mb-4 ${muted}`}>{c.summary}</p>
                 <span className="inline-flex items-center gap-1.5 text-sm font-medium text-indigo-500 group-hover:gap-2.5 transition-all">

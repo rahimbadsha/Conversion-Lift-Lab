@@ -1,9 +1,9 @@
 import { useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
-import { ArrowRight, ArrowLeft, CheckCircle2, Target, Hammer, Lightbulb, TrendingUp, ExternalLink } from 'lucide-react';
+import { ArrowRight, ArrowLeft, CheckCircle2, Target, Hammer, Lightbulb, TrendingUp, ExternalLink, Layers, PenTool } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
-import { caseStudies, bySlug } from '../data/caseStudies';
+import { featuredFirst as caseStudies, bySlug } from '../data/caseStudies';
 import NotFound from './NotFound';
 
 function Block({ icon: Icon, title, children, isDark, heading }) {
@@ -61,7 +61,7 @@ export default function CaseStudy() {
     <main className={`min-h-screen pt-24 pb-20 ${isDark ? 'bg-[#050816]' : 'bg-slate-50'}`}>
       <Helmet>
         <title>{`${cs.title} | Case Study | ConversionLiftLab`}</title>
-        <meta name="description" content={`${cs.summary} Reported result: ${cs.result}.`} />
+        <meta name="description" content={cs.result ? `${cs.summary} Reported result: ${cs.result}.` : cs.summary} />
         <link rel="canonical" href={url} />
         <meta property="og:image" content={`https://conversionliftlab.com${cs.image}.webp`} />
         <script type="application/ld+json">{JSON.stringify({
@@ -116,11 +116,11 @@ export default function CaseStudy() {
         <div className="grid md:grid-cols-3 gap-6 mb-6">
           <div className="md:col-span-2 glass rounded-2xl p-6 sm:p-8 flex items-center gap-5">
             <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shrink-0">
-              <TrendingUp size={26} className="text-white" />
+              {cs.result ? <TrendingUp size={26} className="text-white" /> : <Layers size={26} className="text-white" />}
             </div>
             <div>
-              <div className={`text-xs uppercase tracking-widest mb-1 ${muted}`}>Reported result</div>
-              <div className="text-3xl sm:text-4xl font-black text-gradient">{cs.result}</div>
+              <div className={`text-xs uppercase tracking-widest mb-1 ${muted}`}>{cs.result ? 'Reported result' : 'Built on'}</div>
+              <div className="text-3xl sm:text-4xl font-black text-gradient">{cs.result || cs.platform || cs.type}</div>
             </div>
           </div>
           <dl className="glass rounded-2xl p-6 text-sm space-y-2.5">
@@ -147,16 +147,26 @@ export default function CaseStudy() {
           )}
 
           {(cs.liveUrl || cs.figmaUrl) && (
-            <div className="flex flex-wrap gap-4">
-              {cs.liveUrl && <a href={cs.liveUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-indigo-500 font-medium">View the live page <ExternalLink size={14} /></a>}
-              {cs.figmaUrl && <a href={cs.figmaUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-indigo-500 font-medium">View the design file <ExternalLink size={14} /></a>}
+            <div className="flex flex-col sm:flex-row gap-3">
+              {cs.liveUrl && (
+                <a href={cs.liveUrl} target="_blank" rel="noopener noreferrer" className="btn-primary inline-flex justify-center">
+                  View the live page <ExternalLink size={15} />
+                </a>
+              )}
+              {cs.figmaUrl && (
+                <a href={cs.figmaUrl} target="_blank" rel="noopener noreferrer" className="btn-secondary inline-flex justify-center">
+                  View the design in Figma <PenTool size={15} />
+                </a>
+              )}
             </div>
           )}
         </div>
 
-        <p className={`text-xs mt-6 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
-          The result above is the figure reported for this project. Results depend on the offer, traffic and market, so yours may differ.
-        </p>
+        {cs.result && (
+          <p className={`text-xs mt-6 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
+            The result above is the figure reported for this project. Results depend on the offer, traffic and market, so yours may differ.
+          </p>
+        )}
 
         <div className="glass rounded-3xl p-8 sm:p-10 text-center mt-10">
           <h2 className={`text-2xl sm:text-3xl font-bold mb-3 ${heading}`}>Need a page like this?</h2>

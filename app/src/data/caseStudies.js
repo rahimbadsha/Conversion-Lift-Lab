@@ -1,12 +1,21 @@
 // Case study data. RULE: only facts that are verifiable go here.
 //  - `result` values are the ones already published in the portfolio on the homepage.
 //  - `built` / `approach` describe what is visibly in the page screenshot (design choices), not claimed causes of the result.
-//  - Optional fields (goal, challenge, timeline, platform, clientQuote, figmaUrl, liveUrl) render automatically when filled in.
+//  - Optional fields (goal, challenge, timeline, platform, clientQuote, figmaUrl, liveUrl, result) render automatically when filled in.
 //    Leave them empty rather than guessing.
+//  - DRAFT fields (marked `// DRAFT`) are placeholders inferred from the page's purpose or from site-wide standard delivery
+//    times. They are NOT project facts: confirm or rewrite each one before treating it as final.
 
 export const caseStudies = [
   {
     slug: 'disputifier',
+    featured: true,
+    platform: 'Webflow',
+    timeline: 'Typically 7–14 days', // DRAFT
+    goal: 'Turn visitors who land on the site into free trial signups.', // DRAFT
+    challenge: 'Chargeback software is hard to explain quickly. The page needed to show what the product does and why it matters within the first screen.', // DRAFT
+    liveUrl: 'https://www.disputifier.com/',
+    figmaUrl: 'https://www.figma.com/proto/Y5Ws7F3o96U7ULd3rqPwsh/Disputifier-Websites---Webflow',
     title: 'Disputifier: SaaS Landing Page',
     short: 'Disputifier',
     type: 'SaaS',
@@ -30,6 +39,9 @@ export const caseStudies = [
   },
   {
     slug: 'wellness-course-funnel',
+    timeline: 'Typically 7–14 days', // DRAFT
+    goal: 'Move paid traffic toward a free session sign-up.', // DRAFT
+    challenge: 'Visitors arriving from ads are cold. The page had to build enough trust and clarity to earn a free-session sign-up quickly.', // DRAFT
     title: 'Wellness Course Funnel',
     short: 'Wellness Course',
     type: 'Funnel',
@@ -53,6 +65,9 @@ export const caseStudies = [
   },
   {
     slug: 'down-to-ground-advertorial',
+    timeline: 'Typically 3–5 days', // DRAFT
+    goal: 'Warm up cold traffic with a story before presenting the offer.', // DRAFT
+    challenge: 'Cold visitors will not click an obvious ad. The page needed to read like helpful editorial content while still leading to the offer.', // DRAFT
     title: 'Down to Ground: Advertorial',
     short: 'Down to Ground',
     type: 'Advertorial',
@@ -76,6 +91,9 @@ export const caseStudies = [
   },
   {
     slug: 'zapply-advertorial',
+    timeline: 'Typically 3–5 days', // DRAFT
+    goal: 'Educate Dutch-speaking readers before presenting the supplement offer.', // DRAFT
+    challenge: 'A long, information-heavy page in a different language had to stay easy to skim and still lead to a clear next step.', // DRAFT
     title: 'Zapply: Advertorial',
     short: 'Zapply',
     type: 'Advertorial',
@@ -99,6 +117,9 @@ export const caseStudies = [
   },
   {
     slug: 'injury-claim-networks',
+    timeline: 'Typically 3–5 days', // DRAFT
+    goal: 'Collect qualified legal leads at a lower cost per lead.', // DRAFT
+    challenge: 'Legal intake needs qualified enquiries, not just form fills. The page had to filter leads while keeping the form easy to complete and the compliance wording in place.', // DRAFT
     title: 'Injury Claim Networks: Legal Lead Generation',
     short: 'Injury Claim Networks',
     type: 'Lead generation',
@@ -122,6 +143,9 @@ export const caseStudies = [
   },
   {
     slug: 'saas-software-integration',
+    timeline: 'Typically 3–5 days', // DRAFT
+    goal: 'Turn interested B2B visitors into demo requests.', // DRAFT
+    challenge: 'Software integration is abstract. The page needed to explain the value in business terms and keep the form short.', // DRAFT
     title: 'SaaS Software Integration Landing Page',
     short: 'SaaS Integration',
     type: 'SaaS',
@@ -145,6 +169,9 @@ export const caseStudies = [
   },
   {
     slug: 'era-wedding',
+    timeline: 'Typically 3–5 days', // DRAFT
+    goal: 'Turn visitors into wedding booking enquiries.', // DRAFT
+    challenge: 'Couples compare many photographers. The page needed to feel personal, show proof quickly and make enquiring effortless.', // DRAFT
     title: 'Era Wedding: Event Landing Page',
     short: 'Era Wedding',
     type: 'Local service',
@@ -168,6 +195,12 @@ export const caseStudies = [
   },
   {
     slug: 'jl-studio',
+    featured: true,
+    platform: 'Unbounce', // DRAFT: inferred from the Figma file name ("UB"). Confirm.
+    timeline: 'Typically 3–5 days', // DRAFT
+    goal: 'Turn visitors into free-estimate requests.', // DRAFT
+    challenge: 'Architectural rendering is a considered purchase. The page needed to show quality and credibility fast and make the first step feel low-risk.', // DRAFT
+    figmaUrl: 'https://www.figma.com/proto/YQBDXoWp0edOMWqE6U3AvM/Architectural-Design-LP---UB',
     title: 'JL Studio: Architectural 3D Rendering',
     short: 'JL Studio',
     type: 'Local service',
@@ -189,7 +222,126 @@ export const caseStudies = [
     ],
     image: '/images/portfolio/jl-studio',
   },
+
+  {
+    slug: 'true-gold-republic-website',
+    title: 'True Gold Republic: Website',
+    short: 'True Gold Republic',
+    type: 'Website',
+    industry: 'Precious metals (gold and silver IRA)',
+    pageType: 'Brand website homepage',
+    primaryAction: 'Get the free gold guide',
+    summary: 'A Webflow homepage for a gold and silver IRA company, built around trust and one clear next step.',
+    featured: true,
+    platform: 'Webflow',
+    timeline: 'Typically 7–14 days', // DRAFT
+    goal: 'Give visitors a reason to trust the company quickly and move them to request the free guide or a consultation.', // DRAFT
+    challenge: 'Investing retirement savings is a high-trust decision. The site had to look credible, answer doubts early and keep the main action obvious.', // DRAFT
+    built: [
+      'Hero with a benefit-led headline and two clear actions: the free gold guide and a free consultation',
+      'Trust row of third-party ratings (BBB, TrustLink, Google, ConsumerAffairs) directly under the header',
+      'Customer reviews section ("Trusted by Thousands") and a media endorsements section',
+      'Live precious-metal price ticker and a phone number kept visible in the header',
+    ],
+    approach: [
+      'Trust signals appear before the visitor has scrolled, which matters for a high-stakes financial decision',
+      'The main action is repeated, and a lower-commitment option (consultation) sits beside it',
+      'Reviews and endorsements are placed after the hero, where visitors start to weigh the decision',
+    ],
+    image: '/images/portfolio/true-gold-republic-website',
+    liveUrl: 'https://www.truegoldrepublic.com/',
+    figmaUrl: 'https://www.figma.com/proto/s8P4zdr0zftRjuY6XuxZun/TGR-Website-Homepage-webflow?node-id=0-1',
+  },
+  {
+    slug: 'direct-bullion-funnel',
+    title: 'Direct Bullion: Lead Capture Funnel',
+    short: 'Direct Bullion',
+    type: 'Lead generation',
+    industry: 'Precious metals',
+    pageType: 'Lead capture landing page (free guide)',
+    primaryAction: 'Request the free kit',
+    summary: 'An Unbounce landing page that trades a free gold and silver guide for a visitor\'s contact details.',
+    featured: true,
+    platform: 'Unbounce',
+    timeline: 'Typically 3–5 days', // DRAFT
+    goal: 'Capture leads from paid traffic by offering a free guide.', // DRAFT
+    challenge: 'Cold visitors will not hand over contact details without a clear reason. The offer and the credibility had to be obvious on one screen.', // DRAFT
+    built: [
+      'Dark and gold hero with a three-field form (name, email, phone) above the fold',
+      'Media logos (CNBC, USA Today, Bloomberg, Forbes, Fox Business) directly under the hero',
+      'Award and ranking section with a checklist of what the free resources cover',
+      'A second guide request call to action further down the page',
+    ],
+    approach: [
+      'The form is in the first screen, so the page has one obvious job',
+      'Recognisable media logos and awards build credibility before the visitor has to decide',
+      'A concrete free resource gives visitors a reason to share their details',
+    ],
+    image: '/images/portfolio/direct-bullion-funnel',
+    liveUrl: 'https://secure.truegoldrepublic.com/direct-bullion/',
+    figmaUrl: 'https://www.figma.com/proto/46BbvdiFlhi03vvtZFVFE5/GOLD-Optin-Direct-Bullions',
+  },
+  {
+    slug: 'cobalt-technology-lead-gen',
+    title: 'Cobalt Technology: IT Services Lead Gen',
+    short: 'Cobalt Technology',
+    type: 'Lead generation',
+    industry: 'Managed IT services',
+    pageType: 'Lead generation landing page',
+    primaryAction: 'Claim free network monitoring',
+    summary: 'A GoHighLevel landing page that offers a free year of network monitoring to win IT service enquiries.',
+    featured: true,
+    platform: 'GoHighLevel',
+    timeline: 'Typically 3–5 days', // DRAFT
+    goal: 'Generate enquiries from businesses looking for IT support.', // DRAFT
+    challenge: 'IT services are easy to ignore until something breaks. The page needed a strong, low-risk offer to earn the enquiry.', // DRAFT
+    built: [
+      'Hero headline about the visitor\'s problem, with a short form beside it (name, phone, email)',
+      'A free-offer form headline ("Get 1 year of free network monitoring") and a single action button',
+      'Google rating badge (5.0) placed directly under the form',
+      'Illustrated service sections: Wi-Fi, AI-powered threat prevention and smart surveillance',
+    ],
+    approach: [
+      'A free year of monitoring is a concrete, low-risk offer that makes the form worth filling in',
+      'The form sits next to the headline, so the visitor never has to hunt for the action',
+      'The rating badge supports the decision right where the visitor hesitates',
+    ],
+    image: '/images/portfolio/cobalt-technology-lead-gen',
+    liveUrl: 'https://networkpromo.cobaltnow.com/',
+    figmaUrl: 'https://www.figma.com/proto/NjeqeaXDUIjhbuSA69utzR/Cobalt-Technology---GHL',
+  },
+  {
+    slug: 'michele-capots-coaching-mastermind',
+    title: 'Michele Capots: Coaching Mastermind Funnel',
+    short: 'Michele Capots',
+    type: 'Funnel',
+    industry: 'Coaching and mental wellness',
+    pageType: 'Enrolment landing page for a 12-week mastermind',
+    primaryAction: 'Enroll now',
+    summary: 'A GoHighLevel enrolment page for a 12-week group coaching mastermind.',
+    featured: true,
+    platform: 'GoHighLevel',
+    timeline: 'Typically 3–5 days', // DRAFT
+    goal: 'Fill places in a 12-week group coaching program.', // DRAFT
+    challenge: 'Coaching is a personal purchase. The page needed to explain the program quickly and let the coach\'s personality build trust.', // DRAFT
+    built: [
+      'Warm, photo-led hero with the program name, dates and a prominent "Enroll now" button',
+      'Short message card that speaks to the reader\'s reason for joining',
+      '"Meet your host" section with a photo and the coach\'s background',
+      '"What to expect" grid that spells out the format (weekly live calls) and the benefits',
+    ],
+    approach: [
+      'The dates and the enrol action are in the first screen',
+      'The coach is introduced with a real photo and story, which matters for a personal-development purchase',
+      'A scannable "what to expect" section answers the practical questions before the visitor has to ask',
+    ],
+    image: '/images/portfolio/michele-capots-coaching-mastermind',
+    liveUrl: 'https://unapologetic.michelecapots.com/',
+    figmaUrl: 'https://www.figma.com/proto/6UP90RACNib04QqWfUt4bm/Coach-Michele-Capots',
+  },
 ];
+
+export const featuredFirst = [...caseStudies].sort((a, b) => Number(!!b.featured) - Number(!!a.featured));
 
 export const caseTypes = ['All', ...Array.from(new Set(caseStudies.map(c => c.type)))];
 

@@ -12,7 +12,7 @@ const projects = [
   { img: '/images/portfolio/injury-claim-networks.webp', en: { title: 'Injury Claim Networks', category: 'Lead Generation', result: '$12 CPL (was $41)' }, bn: { title: 'ইনজুরি ক্লেম নেটওয়ার্ক', category: 'লিড জেনারেশন', result: '$১২ CPL (আগে $৪১)' } },
   { img: '/images/portfolio/saas-software-integration.webp', en: { title: 'SaaS Integration', category: 'SaaS Page', result: '+55% demo bookings' }, bn: { title: 'SaaS ইন্টিগ্রেশন', category: 'SaaS পেজ', result: '+৫৫% ডেমো বুকিং' } },
   { img: '/images/portfolio/era-wedding.webp', en: { title: 'Era Wedding', category: 'Event Landing Page', result: '+82% inquiry rate' }, bn: { title: 'এরা ওয়েডিং', category: 'ইভেন্ট পেজ', result: '+৮২% ইনকোয়ারি' } },
-  { img: '/images/portfolio/jl-studio.webp', en: { title: 'JL Studio', category: 'Photography Funnel', result: '+67% booking rate' }, bn: { title: 'JL স্টুডিও', category: 'ফটোগ্রাফি ফানেল', result: '+৬৭% বুকিং' } },
+  { img: '/images/portfolio/jl-studio.webp', en: { title: 'JL Studio', category: '3D Rendering Lead Gen', result: '+67% booking rate' }, bn: { title: 'JL স্টুডিও', category: 'থ্রিডি রেন্ডারিং লিড জেন', result: '+৬৭% বুকিং' } },
 ];
 
 function Lightbox({ project, onClose }) {
