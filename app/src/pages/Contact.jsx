@@ -5,6 +5,7 @@ import { Send, Mail, MessageSquare, Clock } from 'lucide-react';
 import { useLang } from '../context/LangContext';
 import { useTheme } from '../context/ThemeContext';
 import { useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 
 // FormSubmit.co — no key needed. On first submission you'll get an activation email
 // at contact@conversionliftlab.com — click "Activate" once, then all submissions deliver.
@@ -25,7 +26,15 @@ export default function Contact() {
   const isDark = theme === 'dark';
   const [sent, setSent] = useState(false);
   const [error, setError] = useState('');
-  const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm();
+  // Leads arriving from the CRO audit tool get their message pre-filled with their result.
+  const [params] = useSearchParams();
+  const auditSite = (params.get('audit') || '').replace(/[^a-z0-9.-]/gi, '').slice(0, 80);
+  const auditScore = parseInt(params.get('score') || '', 10);
+  const auditRating = (params.get('rating') || '').replace(/[^a-z ]/gi, '').slice(0, 20);
+  const prefill = auditSite && auditScore >= 0 && auditScore <= 100
+    ? `I just ran the free CRO audit on ${auditSite} and got ${auditScore}/100${auditRating ? ` (${auditRating})` : ''}. I'd like help fixing the issues it found.`
+    : '';
+  const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm({ defaultValues: { message: prefill } });
 
   const onSubmit = async (data) => {
     setError('');
