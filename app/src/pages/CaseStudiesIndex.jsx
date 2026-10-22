@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight, TrendingUp } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 import { caseStudies, featuredFirst, caseTypes } from '../data/caseStudies';
-import { pageThumb } from '../data/portfolioPages';
+import { pageThumb, portfolioPages } from '../data/portfolioPages';
 
 export default function CaseStudiesIndex() {
   const { theme } = useTheme();
@@ -117,7 +117,7 @@ export default function CaseStudiesIndex() {
 
         <div className="text-center mt-10">
           <a href="/portfolio" className="inline-flex items-center gap-2 text-indigo-500 hover:text-indigo-400 font-medium">
-            Browse 110 full-page landing page designs <ArrowRight size={16} />
+            Browse {portfolioPages.length} full-page landing page designs <ArrowRight size={16} />
           </a>
         </div>
 

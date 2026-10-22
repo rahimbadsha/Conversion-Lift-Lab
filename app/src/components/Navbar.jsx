@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Menu, X, Sun, Moon, ChevronDown } from 'lucide-react';
 import { useLang } from '../context/LangContext';
 import { useTheme } from '../context/ThemeContext';
+import { portfolioPages } from '../data/portfolioPages';
 
 const navLinks = [
   { en: 'Services', bn: 'সেবাসমূহ', href: '/services' },
@@ -11,7 +12,7 @@ const navLinks = [
     bn: 'কাজ',
     children: [
       { en: 'Case Studies', bn: 'কেস স্টাডি', href: '/case-studies', desc: 'Projects, goals and results', descBn: 'প্রজেক্ট, লক্ষ্য ও ফলাফল' },
-      { en: 'Portfolio', bn: 'পোর্টফোলিও', href: '/portfolio', desc: '110 full-page designs', descBn: '১১০টি সম্পূর্ণ পেজ ডিজাইন' },
+      { en: 'Portfolio', bn: 'পোর্টফোলিও', href: '/portfolio', desc: `${portfolioPages.length} full-page designs`, descBn: `${portfolioPages.length}টি সম্পূর্ণ পেজ ডিজাইন` },
     ],
   },
   { en: 'Process', bn: 'প্রক্রিয়া', href: '/#process' },

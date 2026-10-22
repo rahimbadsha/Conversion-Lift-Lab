@@ -102,8 +102,6 @@ export const portfolioPages = [
   { key: 'p94', h: 5278, cat: 'E-commerce', label: "Nursing exam prep bundle: sales page" },
   { key: 'p95', h: 5135, cat: 'E-commerce', label: "Nursing exam prep bundle: sales page (variant)" },
   { key: 'p96', h: 6049, cat: 'E-commerce', label: "Coffee machine cleaner: product page" },
-  { key: 'p97', h: 5036, cat: 'Lead generation', label: "Online casino welcome bonus: offer page" },
-  { key: 'p98', h: 5053, cat: 'Lead generation', label: "Online casino welcome bonus: offer page (variant)" },
   { key: 'p99', h: 7964, cat: 'E-commerce', label: "Ethical jewellery: brand landing page (variant)" },
   { key: 'p100', h: 9610, cat: 'E-commerce', label: "Portable tyre inflator: product page" },
   { key: 'p101', h: 3264, cat: 'SaaS', label: "Software integration: demo request page" },
