@@ -5,14 +5,14 @@ import { useLang } from '../../context/LangContext';
 import { useTheme } from '../../context/ThemeContext';
 
 const projects = [
-  { img: '/images/portfolio/disputifier.png', en: { title: 'Disputifier — SaaS', category: 'SaaS Landing Page', result: '+38% trial signups' }, bn: { title: 'Disputifier — SaaS', category: 'SaaS ল্যান্ডিং পেজ', result: '+৩৮% ট্রায়াল সাইনআপ' } },
-  { img: '/images/portfolio/wellness-course-funnel.png', en: { title: 'Wellness Course Funnel', category: 'Course Funnel', result: '2.4x ROAS improvement' }, bn: { title: 'ওয়েলনেস কোর্স ফানেল', category: 'কোর্স ফানেল', result: '২.৪x ROAS উন্নতি' } },
-  { img: '/images/portfolio/down-to-ground-advertorial.png', en: { title: 'Down to Ground', category: 'Advertorial', result: '4.1% CTR' }, bn: { title: 'ডাউন টু গ্রাউন্ড', category: 'অ্যাডভার্টোরিয়াল', result: '৪.১% CTR' } },
-  { img: '/images/portfolio/zapply-advertorial.png', en: { title: 'Zapply — Advertorial', category: 'Advertorial', result: '3.2% conversion' }, bn: { title: 'Zapply — অ্যাডভার্টোরিয়াল', category: 'অ্যাডভার্টোরিয়াল', result: '৩.২% রূপান্তর' } },
-  { img: '/images/portfolio/injury-claim-networks.png', en: { title: 'Injury Claim Networks', category: 'Lead Generation', result: '$12 CPL (was $41)' }, bn: { title: 'ইনজুরি ক্লেম নেটওয়ার্ক', category: 'লিড জেনারেশন', result: '$১২ CPL (আগে $৪১)' } },
-  { img: '/images/portfolio/saas-software-integration.png', en: { title: 'SaaS Integration', category: 'SaaS Page', result: '+55% demo bookings' }, bn: { title: 'SaaS ইন্টিগ্রেশন', category: 'SaaS পেজ', result: '+৫৫% ডেমো বুকিং' } },
-  { img: '/images/portfolio/era-wedding.png', en: { title: 'Era Wedding', category: 'Event Landing Page', result: '+82% inquiry rate' }, bn: { title: 'এরা ওয়েডিং', category: 'ইভেন্ট পেজ', result: '+৮২% ইনকোয়ারি' } },
-  { img: '/images/portfolio/jl-studio.png', en: { title: 'JL Studio', category: 'Photography Funnel', result: '+67% booking rate' }, bn: { title: 'JL স্টুডিও', category: 'ফটোগ্রাফি ফানেল', result: '+৬৭% বুকিং' } },
+  { img: '/images/portfolio/disputifier.webp', en: { title: 'Disputifier — SaaS', category: 'SaaS Landing Page', result: '+38% trial signups' }, bn: { title: 'Disputifier — SaaS', category: 'SaaS ল্যান্ডিং পেজ', result: '+৩৮% ট্রায়াল সাইনআপ' } },
+  { img: '/images/portfolio/wellness-course-funnel.webp', en: { title: 'Wellness Course Funnel', category: 'Course Funnel', result: '2.4x ROAS improvement' }, bn: { title: 'ওয়েলনেস কোর্স ফানেল', category: 'কোর্স ফানেল', result: '২.৪x ROAS উন্নতি' } },
+  { img: '/images/portfolio/down-to-ground-advertorial.webp', en: { title: 'Down to Ground', category: 'Advertorial', result: '4.1% CTR' }, bn: { title: 'ডাউন টু গ্রাউন্ড', category: 'অ্যাডভার্টোরিয়াল', result: '৪.১% CTR' } },
+  { img: '/images/portfolio/zapply-advertorial.webp', en: { title: 'Zapply — Advertorial', category: 'Advertorial', result: '3.2% conversion' }, bn: { title: 'Zapply — অ্যাডভার্টোরিয়াল', category: 'অ্যাডভার্টোরিয়াল', result: '৩.২% রূপান্তর' } },
+  { img: '/images/portfolio/injury-claim-networks.webp', en: { title: 'Injury Claim Networks', category: 'Lead Generation', result: '$12 CPL (was $41)' }, bn: { title: 'ইনজুরি ক্লেম নেটওয়ার্ক', category: 'লিড জেনারেশন', result: '$১২ CPL (আগে $৪১)' } },
+  { img: '/images/portfolio/saas-software-integration.webp', en: { title: 'SaaS Integration', category: 'SaaS Page', result: '+55% demo bookings' }, bn: { title: 'SaaS ইন্টিগ্রেশন', category: 'SaaS পেজ', result: '+৫৫% ডেমো বুকিং' } },
+  { img: '/images/portfolio/era-wedding.webp', en: { title: 'Era Wedding', category: 'Event Landing Page', result: '+82% inquiry rate' }, bn: { title: 'এরা ওয়েডিং', category: 'ইভেন্ট পেজ', result: '+৮২% ইনকোয়ারি' } },
+  { img: '/images/portfolio/jl-studio.webp', en: { title: 'JL Studio', category: 'Photography Funnel', result: '+67% booking rate' }, bn: { title: 'JL স্টুডিও', category: 'ফটোগ্রাফি ফানেল', result: '+৬৭% বুকিং' } },
 ];
 
 function Lightbox({ project, onClose }) {
@@ -65,6 +65,9 @@ function Lightbox({ project, onClose }) {
               <span className="text-indigo-600 text-xs font-medium">{t(project.en.category, project.bn.category)}</span>
               <h3 className={`font-semibold mt-0.5 ${isDark ? 'text-white' : 'text-slate-900'}`}>{t(project.en.title, project.bn.title)}</h3>
               <span className="text-sm font-medium text-indigo-600">{t(project.en.result, project.bn.result)}</span>
+              <a href={`/case-studies/${project.img.split('/').pop().replace('.webp', '')}`} className="block text-sm text-indigo-500 hover:text-indigo-400 mt-1">
+                {t('Read the case study →', 'কেস স্টাডি পড়ুন →')}
+              </a>
             </div>
             <a
               href="https://www.upwork.com/freelancers/rahimbadsha"
@@ -123,7 +126,7 @@ export default function CaseStudies() {
               className="group glass rounded-2xl overflow-hidden cursor-pointer"
             >
               <div className="relative overflow-hidden aspect-[4/3]">
-                <img src={p.img} alt={p.en.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
+                <img src={p.img.replace('.webp', '-thumb.webp')} alt={p.en.title} width="720" height="540" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                 {/* Zoom hint */}
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -153,6 +156,7 @@ export default function CaseStudies() {
             {t('See all 358+ reviews on Upwork', 'আপওয়ার্কে সকল ৩৫৮+ রিভিউ দেখুন')}
             <ExternalLink size={16} />
           </a>
+          <a href="/case-studies" className="btn-secondary ml-3 inline-flex">{t('Read the case studies', 'কেস স্টাডি পড়ুন')}</a>
         </motion.div>
       </div>
     </section>

@@ -35,7 +35,7 @@ export default function AboutMe() {
               {/* Photo frame */}
               <div className="relative w-72 h-80 sm:w-80 sm:h-96 rounded-3xl overflow-hidden border border-indigo-500/20 shadow-2xl">
                 <img
-                  src="/images/rahim.png"
+                  src="/images/rahim.webp"
                   alt="Rahim Badsha — CRO Landing Page Expert"
                   className="w-full h-full object-cover object-top"
                 />

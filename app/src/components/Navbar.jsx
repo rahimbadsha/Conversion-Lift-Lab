@@ -6,7 +6,7 @@ import { useTheme } from '../context/ThemeContext';
 
 const navLinks = [
   { en: 'Services', bn: 'সেবাসমূহ', href: '/services' },
-  { en: 'Case Studies', bn: 'কেস স্টাডি', href: '/#case-studies' },
+  { en: 'Case Studies', bn: 'কেস স্টাডি', href: '/case-studies' },
   { en: 'Process', bn: 'প্রক্রিয়া', href: '/#process' },
   { en: 'Pricing', bn: 'মূল্য', href: '/#pricing' },
   { en: 'Smart Audit', bn: 'স্মার্ট অডিট', href: '/website-score', lgOnly: true },
