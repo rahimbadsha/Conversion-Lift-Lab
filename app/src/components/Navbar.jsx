@@ -9,7 +9,7 @@ const navLinks = [
   { en: 'Case Studies', bn: 'কেস স্টাডি', href: '/#case-studies' },
   { en: 'Process', bn: 'প্রক্রিয়া', href: '/#process' },
   { en: 'Pricing', bn: 'মূল্য', href: '/#pricing' },
-  { en: 'Free Score', bn: 'ফ্রি স্কোর', href: '/website-score', lgOnly: true },
+  { en: 'Smart Audit', bn: 'স্মার্ট অডিট', href: '/website-score', lgOnly: true },
   { en: 'About', bn: 'সম্পর্কে', href: '/about' },
   { en: 'Contact', bn: 'যোগাযোগ', href: '/contact' },
 ];

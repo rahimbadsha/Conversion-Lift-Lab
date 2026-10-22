@@ -30,7 +30,16 @@ export function gradeFor(score) {
   return 'F';
 }
 
-// Technical health: real measurements taken while scanning (speed, headers, crawl files, image weight).
+// Plain-language rating shown to visitors instead of a school grade.
+export function ratingFor(score) {
+  if (score >= 90) return { label: 'Excellent', tagline: 'Conversion machine', tone: 'emerald' };
+  if (score >= 80) return { label: 'Very Good', tagline: 'Strong foundation', tone: 'green' };
+  if (score >= 65) return { label: 'Good', tagline: 'Room to grow', tone: 'sky' };
+  if (score >= 50) return { label: 'Needs Work', tagline: 'Leaking leads', tone: 'amber' };
+  if (score >= 35) return { label: 'Poor', tagline: 'Losing customers', tone: 'orange' };
+  return { label: 'Critical', tagline: 'Urgent fixes needed', tone: 'red' };
+}
+
 export function scoreTechnical(t) {
   const f = t.fetch;
   const hdr = f.headers || {};
@@ -308,12 +317,17 @@ export function scorePage(m, tech = null) {
     .filter(c => c.points < c.max)
     .sort((a, b) => b.max - b.points - (a.max - a.points))
     .slice(0, 3)
-    .map(c => ({ category: c.category, label: c.label, tip: c.tip }));
+    .map(c => ({ category: c.category, label: c.label, tip: c.tip, lost: c.max - c.points, max: c.max, status: c.status }));
 
   const notes = [];
   if (m.wordCount < 60 && m.scripts.external > 3) {
     notes.push('This page appears to load most of its content with JavaScript. This scan reads the raw HTML, so the score may be lower than what visitors actually see.');
   }
 
-  return { score, grade: gradeFor(score), categories, topFixes, notes };
+  const counts = {
+    pass: allChecks.filter(c => c.status === 'pass').length,
+    warn: allChecks.filter(c => c.status === 'warn').length,
+    fail: allChecks.filter(c => c.status === 'fail').length,
+  };
+  return { score, grade: gradeFor(score), rating: ratingFor(score), counts, categories, topFixes, notes };
 }
