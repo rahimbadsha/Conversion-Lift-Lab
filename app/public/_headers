@@ -1,5 +1,5 @@
-# Security headers. The script-src hash allows only the inline theme-init script in index.html;
-# if that script changes, recompute: sha256 (base64) of its exact contents.
+# Security headers. The script-src hash placeholder is filled in at build time by
+# scripts/csp-hash.mjs, allowing only the inline theme-init script in index.html.
 /*
   X-Content-Type-Options: nosniff
   X-Frame-Options: DENY
@@ -7,7 +7,7 @@
   Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()
   Cross-Origin-Opener-Policy: same-origin
   Strict-Transport-Security: max-age=31536000; includeSubDomains
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'sha256-b8rLCLDugMb7yS6VwOz8Q7/yxzgpUxMBlNfZJObpuWw='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob:; media-src 'self'; connect-src 'self' https://formsubmit.co; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://formsubmit.co; object-src 'none'
+  Content-Security-Policy: default-src 'self'; script-src 'self' '__INLINE_SCRIPT_HASH__'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob:; media-src 'self'; connect-src 'self' https://formsubmit.co; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://formsubmit.co; object-src 'none'
 
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
